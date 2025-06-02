@@ -47,7 +47,7 @@ pnpm run dev
 ## 🔧 Environment Variables
 
 ```.env.local
-NEXT_PUBLIC_VOTING_APP_URL=https://vote.devoter.xyz
+NEXT_PUBLIC_VOTING_APP_URL=https://app.devoter.xyz
 ```
 
 
@@ -55,6 +55,6 @@ NEXT_PUBLIC_VOTING_APP_URL=https://vote.devoter.xyz
 
 **Empowering Web3 Repository Discovery** 🚀
 
-[Report Bug](https://github.com/your-org/devoter-voting/issues) • [Request Feature](https://github.com/your-org/devoter-voting/issues) • [Contribute](https://github.com/your-org/devoter-voting/pulls)
+[Report Bug](https://github.com/devoter-xyz/devoter-landing/issues) • [Request Feature](https://github.com/devoter-xyz/devoter-landing/issues) • [Contribute](https://github.com/devoter-xyz/devoter-landing/pulls)
 
 </div>
