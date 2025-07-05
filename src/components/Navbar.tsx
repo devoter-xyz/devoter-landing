@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import clsx from "clsx";
+import Image from "next/image";
+
 
 const navItems = [
   { label: "Features", href: "#features" },
@@ -38,10 +40,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="#" className="flex items-center gap-2">
-          <img
+          <Image
             src="/logo.png"
             alt="Logo"
-            className="md:h-8 h-6 w-auto object-contain"
+            width={30}
+            height={30}
+            className="object-contain"
           />
         </Link>
 
