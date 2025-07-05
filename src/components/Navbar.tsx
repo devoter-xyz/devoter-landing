@@ -27,9 +27,7 @@ export default function Navbar() {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
-
-
-<header
+    <header
       className={clsx(
         "fixed top-0 w-full z-50 transition-all duration-300",
         isScrolled
@@ -40,12 +38,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="#" className="flex items-center gap-2">
-          <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500">
-            <Vote size={20} className="text-white" />
-          </div>
-          <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            DEVoter
-          </span>
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="md:h-8 h-6 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Navigation */}
