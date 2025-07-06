@@ -30,22 +30,22 @@ export default function ParticleSystem() {
       const width = window.innerWidth;
       const height = window.innerHeight;
 
-      // Calculate number of particles based on screen width (1 per 30px, max 50)
-      const particleCount = Math.min(Math.floor(width / 30), 50);
+      // Calculate number of particles based on screen width (1 per 30px, max 80)
+      const particleCount = Math.min(Math.floor(width / 25), 80);
       const particles: Particle[] = [];
 
-      // Colors for particles
-      const colors = ["#6D28D9", "#8B5CF6"]; // Two purple shades
+      // Colors for particles - adding more variety with blues and purples
+      const colors = ["#6D28D9", "#8B5CF6", "#3B82F6", "#06B6D4", "#A855F7"];
 
       for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 2,
-          vy: (Math.random() - 0.5) * 2,
-          size: Math.random() * 3 + 1,
+          vx: (Math.random() - 0.5) * 1,  // Slower movement
+          vy: (Math.random() - 0.5) * 1,
+          size: Math.random() * 4 + 1.5,  // Slightly larger particles
           color: colors[Math.floor(Math.random() * colors.length)],
-          opacity: Math.random() * 0.5 + 0.3,
+          opacity: Math.random() * 0.6 + 0.4,  // Higher opacity
         });
       }
 
@@ -97,9 +97,9 @@ export default function ParticleSystem() {
         const dy = p.y - mousePos.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < 100) {
+        if (distance < 120) {
           const angle = Math.atan2(dy, dx);
-          const force = (100 - distance) / 500;
+          const force = (120 - distance) / 400;
           p.vx += Math.cos(angle) * force;
           p.vy += Math.sin(angle) * force;
         }
@@ -107,9 +107,7 @@ export default function ParticleSystem() {
         // Draw particle
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = p.color
-          .replace(")", `, ${p.opacity})`)
-          .replace("rgb", "rgba");
+        ctx.fillStyle = `rgba(${parseInt(p.color.slice(1, 3), 16)}, ${parseInt(p.color.slice(3, 5), 16)}, ${parseInt(p.color.slice(5, 7), 16)}, ${p.opacity})`;
         ctx.fill();
 
         // Draw connections to nearby particles
@@ -119,14 +117,14 @@ export default function ParticleSystem() {
           const dy = p.y - p2.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 100) {
+          if (distance < 150) {  // Increased connection distance
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
             // Make line opacity based on distance
-            const opacity = ((100 - distance) / 100) * 0.2;
-            ctx.strokeStyle = `rgba(110, 110, 160, ${opacity})`;
-            ctx.lineWidth = 0.5;
+            const opacity = ((150 - distance) / 150) * 0.3;  // Increased opacity
+            ctx.strokeStyle = `rgba(110, 130, 200, ${opacity})`;  // More visible color
+            ctx.lineWidth = 0.6;  // Slightly thicker lines
             ctx.stroke();
           }
         }
@@ -167,7 +165,7 @@ export default function ParticleSystem() {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []); // No missing dependencies now
+  }, []);
 
   return (
     <canvas
@@ -178,8 +176,9 @@ export default function ParticleSystem() {
         left: 0,
         width: "100%",
         height: "100%",
-        zIndex: -1,
+        zIndex: 1,
         pointerEvents: "none",
+        opacity: 0.4,
       }}
     />
   );
