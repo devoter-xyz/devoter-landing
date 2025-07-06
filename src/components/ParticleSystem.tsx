@@ -176,8 +176,9 @@ export default function ParticleSystem() {
         left: 0,
         width: "100%",
         height: "100%",
-        zIndex: -1,
+        zIndex: 1,
         pointerEvents: "none",
+        opacity: 0.4,
       }}
     />
   );

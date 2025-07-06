@@ -50,8 +50,8 @@ export default function Hero() {
                 <Users size={24} className="text-cyan-400" />
               </div>
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-white">Multi-Token</h3>
-            <p className="text-gray-400">Support for diverse governance tokens and participation</p>
+            <h3 className="text-xl font-semibold mb-2 text-white">DEV-Token</h3>
+            <p className="text-gray-400">Support for DEV tokens and participation</p>
           </div>
           
           <div className="bg-[#1a1f2e]/80 backdrop-blur-sm border border-gray-800 rounded-xl p-6 flex flex-col items-center">
