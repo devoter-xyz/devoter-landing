@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import ParticleSystem from "@/components/ParticleSystem";
 import Hero from "@/components/landing/Hero";
+import Features from '@/components/landing/Features';
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <ParticleSystem />
       <Navbar />
       <Hero />
+      <Features />
     </main>
   );
 }
