@@ -1,5 +1,4 @@
 import { Shield, Users, Zap } from "lucide-react";
-import { CustomCard } from "../common/CustomCard";
 
 export default function Hero() {
   return (
@@ -40,10 +39,14 @@ export default function Hero() {
                 <Shield size={24} className="text-purple-400" />
               </div>
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-white">Non-Custodial</h3>
-            <p className="text-gray-400">Tokens stay in your wallet throughout the voting process</p>
+            <h3 className="text-xl font-semibold mb-2 text-white">
+              Non-Custodial
+            </h3>
+            <p className="text-gray-400">
+              Tokens stay in your wallet throughout the voting process
+            </p>
           </div>
-          
+
           <div className="bg-[#1a1f2e]/80 backdrop-blur-sm border border-gray-800 rounded-xl p-6 flex flex-col items-center">
             <div className="h-20 bg-[#1a1f2e] rounded-xl flex items-center mb-6 p-4">
               <div className="bg-cyan-500/10 rounded-full p-3">
@@ -51,20 +54,26 @@ export default function Hero() {
               </div>
             </div>
             <h3 className="text-xl font-semibold mb-2 text-white">DEV-Token</h3>
-            <p className="text-gray-400">Support for DEV tokens and participation</p>
+            <p className="text-gray-400">
+              Support for DEV tokens and participation
+            </p>
           </div>
-          
+
           <div className="bg-[#1a1f2e]/80 backdrop-blur-sm border border-gray-800 rounded-xl p-6 flex flex-col items-center">
             <div className="h-20 bg-[#1a1f2e] rounded-xl flex items-center mb-6 p-4">
               <div className="bg-green-500/10 rounded-full p-3">
                 <Zap size={24} className="text-green-400" />
               </div>
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-white">Weekly Cycles</h3>
-            <p className="text-gray-400">Regular engagement with fresh repository discoveries</p>
+            <h3 className="text-xl font-semibold mb-2 text-white">
+              Weekly Cycles
+            </h3>
+            <p className="text-gray-400">
+              Regular engagement with fresh repository discoveries
+            </p>
           </div>
         </div>
       </div>
     </section>
   );
-} 
+}
