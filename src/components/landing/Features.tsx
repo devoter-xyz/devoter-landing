@@ -1,4 +1,4 @@
-import { Shield, Users, RefreshCw, BarChart, Zap, Database } from 'lucide-react';
+import { Shield, RefreshCw, BarChart, Zap, Database, CodeXml } from 'lucide-react';
 import React from 'react';
 import { GlassCard } from '../ui/glass-card';
 
@@ -11,9 +11,9 @@ const features = [
     delay: 200,
   },
   {
-    icon: <Users size={32} />,
-    title: 'Multi-Token Support',
-    description: 'Participate with various governance tokens from different protocols. Inclusive voting for the entire Web3 ecosystem.',
+    icon: <CodeXml size={32} />,
+    title: 'API Support',
+    description: 'Integrate seamlessly with our robust API to automate voting, fetch analytics, and build custom governance tools for your community.',
     gradient: 'from-blue-500 to-cyan-500',
     delay: 400,
   },
