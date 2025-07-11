@@ -3,6 +3,7 @@ import ParticleSystem from "@/components/ParticleSystem";
 import Hero from "@/components/landing/Hero";
 import Features from '@/components/landing/Features';
 import Workflow from "@/components/landing/Workflow";
+import ScoutGameIntegration from "@/components/landing/ScoutGameIntegration";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Features />
+      <ScoutGameIntegration />
       <Workflow />
     </main>
   );
