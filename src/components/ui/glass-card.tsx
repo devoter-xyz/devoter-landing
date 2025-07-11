@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import * as React from "react";
+import { cn } from "@/lib/utils";
 
 const GlassCard = React.forwardRef<
   HTMLDivElement,
@@ -8,7 +8,7 @@ const GlassCard = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg backdrop-blur-lg",
+      "rounded-xl border border-white/10 bg-white/5 shadow-md backdrop-blur-lg",
       className
     )}
     {...props}
@@ -16,4 +16,60 @@ const GlassCard = React.forwardRef<
 ));
 GlassCard.displayName = "GlassCard";
 
-export { GlassCard };
+const GlassCardHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex flex-col space-y-1.5 p-6", className)}
+    {...props}
+  />
+));
+GlassCardHeader.displayName = "GlassCardHeader";
+
+const GlassCardTitle = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h3
+    ref={ref}
+    className={cn("text-2xl font-semibold leading-none tracking-tight", className)}
+    {...props}
+  />
+));
+GlassCardTitle.displayName = "GlassCardTitle";
+
+const GlassCardDescription = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => (
+  <p
+    ref={ref}
+    className={cn("text-sm text-white/60", className)}
+    {...props}
+  />
+));
+GlassCardDescription.displayName = "GlassCardDescription";
+
+const GlassCardContent = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+));
+GlassCardContent.displayName = "GlassCardContent";
+
+const GlassCardFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex items-center p-6 pt-0", className)}
+    {...props}
+  />
+));
+GlassCardFooter.displayName = "GlassCardFooter";
+
+export { GlassCard, GlassCardHeader, GlassCardTitle, GlassCardDescription, GlassCardContent, GlassCardFooter };
