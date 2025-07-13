@@ -49,10 +49,10 @@ const ScoutGameIntegration = () => {
   return (
     <section id="scoutgame" className="relative py-20 px-6 overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-green-500/20 blur-3xl rounded-full" />
-        <div className="absolute top-1/4 right-0 w-1/2 h-1/2 bg-blue-500/10 blur-3xl rounded-full" />
-        <div className="absolute bottom-0 left-1/4 w-1/2 h-1/2 bg-cyan-500/10 blur-3xl rounded-full" />
-        <div className="absolute bottom-0 right-1/4 w-1/3 h-1/2 bg-purple-500/10 blur-3xl rounded-full" />
+        <div className="absolute top-20 left-0 w-1/3 h-1/2 bg-green-800/20 blur-3xl rounded-full" />
+        <div className="absolute top-1/4 right-0 w-1/2 h-1/2 bg-blue-800/10 blur-3xl rounded-full" />
+        <div className="absolute bottom-0 left-1/4 w-1/2 h-1/2 bg-cyan-800/10 blur-3xl rounded-full" />
+        <div className="absolute bottom-20 right-0 w-1/3 h-1/2 bg-purple-800/10 blur-3xl rounded-full" />
       </div>
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-16">
@@ -81,9 +81,9 @@ const ScoutGameIntegration = () => {
               </GlassCard>
             ))}
           </div>
-          <GlassCard className="p-8">
+          <GlassCard className="p-8 h-full">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">Unified Ecosystem</h3>
-            <div className="relative flex flex-col items-start gap-4">
+            <div className="relative flex flex-col items-start gap-20">
               <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-gradient-to-b from-purple-500 via-cyan-400 to-teal-400" />
               {integrationSteps.map((step) => (
                 <div key={step.number} className="flex items-center gap-5 w-full">

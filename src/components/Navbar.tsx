@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
-import Link from "next/link";
 import clsx from "clsx";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
-
+import Link from "next/link";
+import { useState } from "react";
 
 const navItems = [
   { label: "Features", href: "#features" },
@@ -14,16 +13,7 @@ const navItems = [
 ];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
@@ -31,10 +21,7 @@ export default function Navbar() {
   return (
     <header
       className={clsx(
-        "fixed top-0 w-full z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-[#0e131f]/40 backdrop-blur-md border-b border-white/10"
-          : "bg-gradient-to-r from-[#1a233a] to-[#05080f]"
+        "fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-sm"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
