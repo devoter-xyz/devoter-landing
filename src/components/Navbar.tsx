@@ -31,10 +31,7 @@ export default function Navbar() {
   return (
     <header
       className={clsx(
-        "fixed top-0 w-full z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-[#0e131f]/40 backdrop-blur-md border-b border-white/10"
-          : "bg-gradient-to-r from-[#1a233a] to-[#05080f]"
+        "fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-sm"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
