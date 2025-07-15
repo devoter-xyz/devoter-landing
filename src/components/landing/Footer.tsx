@@ -11,12 +11,12 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <Image
-                src="/logo.png"
+                src="/logo_text.svg"
                 alt="Devoter Logo"
                 width={40}
                 height={40}
+                className="w-32"
               />
-              <h2 className="text-2xl font-bold">Devoter</h2>
             </div>
             <p>
               The all-in-one platform for decentralized autonomous

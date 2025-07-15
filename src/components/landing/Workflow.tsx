@@ -84,7 +84,7 @@ const Workflow = () => {
   };
 
   return (
-    <section id="workflow" className="py-20 sm:py-32 bg-background text-foreground">
+    <section id="workflow" className="py-20 sm:py-32 bg-accent/10 rounded-4xl text-foreground">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">
