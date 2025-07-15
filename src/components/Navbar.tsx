@@ -28,7 +28,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="#" className="flex items-center gap-2">
           <Image
-            src="/logo.png"
+            src="/logo.svg"
             alt="Logo"
             width={30}
             height={30}
@@ -50,16 +50,6 @@ export default function Navbar() {
             </a>
           ))}
         </nav>
-
-        {/* Desktop CTA Buttons */}
-        <div className="hidden md:flex items-center gap-4">
-          <button className="px-4 py-2 rounded-full border border-cyan-400 bg-cyan-500 text-white transition cursor-pointer">
-            Connect Wallet
-          </button>
-          <button className="px-4 py-2 rounded-full bg-gradient-to-r from-purple-400 to-cyan-400 text-white shadow-md cursor-pointer">
-            Launch App
-          </button>
-        </div>
 
         {/* Mobile Menu Button */}
         <button
@@ -84,14 +74,6 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
-          <div className="flex flex-col gap-2">
-            <button className="w-full px-4 py-2 rounded-full border border-cyan-400  bg-cyan-500 text-white transition">
-              Connect Wallet
-            </button>
-            <button className="w-full px-4 py-2 rounded-full bg-gradient-to-r from-purple-400 to-cyan-400 text-white shadow-md">
-              Launch App
-            </button>
-          </div>
         </div>
       )}
     </header>
