@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import ParticleSystem from "../components/ParticleSystem";
-import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Devoter",
-  description: "DEVoter is an open-source voting platform that bridges web3 repository maintainers with the ScoutGame ecosystem. We enable community-driven discovery and validation of promising open-source projects through token-weighted voting.",
+  description:
+    "DEVoter is an open-source voting platform that bridges web3 repository maintainers with the ScoutGame ecosystem. We enable community-driven discovery and validation of promising open-source projects through token-weighted voting.",
 };
 
 export default function RootLayout({
@@ -29,8 +28,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ParticleSystem />
-        <Navbar />
         {children}
       </body>
     </html>

@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="relative w-full h-screen flex items-center justify-center text-white">
       <div className="absolute inset-0 -z-10 h-full w-full bg-transparent" />
       <div className="container mx-auto px-4 text-center">
-        <div className="inline-block bg-gray-800/50 border border-gray-700 rounded-full px-4 py-1.5 mb-6">
+        <div className="inline-block bg-blue-800/70 border rounded-full px-4 py-1.5 mb-6">
           <p className="flex items-center text-sm font-light">
             <Zap size={16} className="mr-2 text-yellow-400" />
             Web3 Repository Discovery Platform

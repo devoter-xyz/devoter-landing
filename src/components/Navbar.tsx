@@ -21,18 +21,18 @@ export default function Navbar() {
   return (
     <header
       className={clsx(
-        "fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-sm"
+        "fixed top-0 w-full z-50 backdrop-blur-sm"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="#" className="flex items-center gap-2">
           <Image
-            src="/logo.svg"
+            src="/logo_text.svg"
             alt="Logo"
-            width={30}
+            width={50}
             height={30}
-            className="object-contain"
+            className="object-contain w-32"
           />
         </Link>
 
@@ -43,7 +43,7 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               onClick={closeMobileMenu}
-              className="relative group text-white font-medium"
+              className="relative group font-medium"
             >
               {item.label}
               <span className="absolute bottom-0 left-0 w-full h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform origin-left bg-gradient-to-r from-cyan-400 to-purple-400" />
