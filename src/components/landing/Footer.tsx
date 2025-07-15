@@ -19,8 +19,7 @@ const Footer = () => {
               />
             </div>
             <p>
-              The all-in-one platform for decentralized autonomous
-              organizations.
+            Empowering Web3 Communities and Projects Through Token-Weighted Voting
             </p>
           </div>
 
@@ -41,11 +40,6 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link href="#">
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#">
                     Changelog
                   </Link>
                 </li>
@@ -57,16 +51,6 @@ const Footer = () => {
                 <li>
                   <Link href="#">
                     About us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    Careers
                   </Link>
                 </li>
                 <li>
@@ -90,7 +74,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#">
+                  <Link href="https://github.com/devoter-xyz" target="_blank" rel="noopener noreferrer">
                     GitHub
                   </Link>
                 </li>
@@ -111,7 +95,7 @@ const Footer = () => {
             <Link href="#">
               <FaDiscord />
             </Link>
-            <Link href="#">
+            <Link href="https://github.com/devoter-xyz" target="_blank" rel="noopener noreferrer">
               <FaGithub />
             </Link>
           </div>

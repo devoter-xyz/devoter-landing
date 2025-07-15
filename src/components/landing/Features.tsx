@@ -62,7 +62,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section id="features" className="py-20 px-6 bg-background text-foreground">
+    <section id="features" className="py-20 px-6 bg-accent/10 rounded-3xl text-foreground">
       <div className="container mx-auto max-w-7xl">
         {/* Section Heading */}
         <div className="text-center mb-16">
@@ -70,7 +70,7 @@ const Features = () => {
             Platform Features
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Built for developers, by developers. Experience the future of repository discovery through community-driven governance.
+            Built for developers, by developers. Experience the future of repository discovery through community-driven voting.
           </p>
         </div>
 
@@ -105,24 +105,6 @@ const Features = () => {
             </GlassCard>
           ))}
         </div>
-
-        {/* CTA Card */}
-        <GlassCard className="p-8 md:p-12 bg-card border border-border text-center">
-          <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Ready to Shape the Future?
-          </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            Join thousands of developers already using DeVoter to discover and promote innovative repositories.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <button className="px-8 py-3 font-bold text-primary-foreground bg-gradient-to-r from-secondary to-accent rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
-              Start Voting Now
-            </button>
-            <button className="px-8 py-3 font-bold text-foreground bg-transparent border border-border rounded-lg hover:bg-muted/10 transition-all duration-300">
-              Learn More
-            </button>
-          </div>
-        </GlassCard>
       </div>
     </section>
   );
