@@ -7,7 +7,7 @@ const gradientButtonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-gradient-to-r from-purple-600 to-blue-500',
+        primary: 'bg-gradient-to-r from-secondary to-accent',
         secondary: 'bg-transparent border-2 border-white/50 hover:bg-white/10 hover:border-white',
       },
     },
