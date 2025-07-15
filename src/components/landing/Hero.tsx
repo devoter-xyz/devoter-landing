@@ -1,10 +1,9 @@
-import { Shield, Users, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import Image from "next/image";
 
 export default function Hero() {
   return (
     <section className="relative w-full min-h-screen flex items-center bg-gradient-to-b from-primary/10 to-background text-foreground">
-
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
         {/* Left: Text & CTAs */}
         <div className="w-full md:w-1/2 text-center md:text-left">
