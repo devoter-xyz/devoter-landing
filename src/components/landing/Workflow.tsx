@@ -84,7 +84,7 @@ const Workflow = () => {
   };
 
   return (
-    <section id="workflow" className="py-20 sm:py-32 bg-accent/10 rounded-4xl text-foreground">
+    <section id="workflow" className="py-20 sm:py-32 text-foreground">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">
@@ -164,6 +164,24 @@ const Workflow = () => {
               <GlassCardContent className="p-2">{renderMockup()}</GlassCardContent>
             </GlassCard>
           </div>
+        </div>
+        <div className="mt-32">
+        <GlassCard className="p-8 md:p-12 bg-card border border-border text-center">
+          <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Ready to Shape the Future?
+          </h3>
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+            Join thousands of developers already using DeVoter to discover and promote innovative repositories.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <button className="px-8 py-3 font-bold text-primary-foreground bg-gradient-to-r from-secondary to-accent rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+              Start Voting Now
+            </button>
+            <button className="px-8 py-3 font-bold text-foreground bg-transparent border border-border rounded-lg hover:bg-muted/10 transition-all duration-300">
+              Learn More
+            </button>
+          </div>
+        </GlassCard>
         </div>
       </div>
     </section>
