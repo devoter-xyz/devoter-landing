@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { SiFarcaster } from "react-icons/si";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -89,11 +91,11 @@ const Footer = () => {
             &copy; 2025 Devoter. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link href="#">
-              <FaTwitter />
+            <Link href="https://x.com/devoterxyz" target="_blank" rel="noopener noreferrer">
+              <FaXTwitter />
             </Link>
-            <Link href="#">
-              <FaDiscord />
+            <Link href="https://farcaster.com/devoterxyz" target="_blank" rel="noopener noreferrer">
+              <SiFarcaster />
             </Link>
             <Link href="https://github.com/devoter-xyz" target="_blank" rel="noopener noreferrer">
               <FaGithub />
