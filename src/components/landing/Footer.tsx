@@ -26,12 +26,12 @@ const Footer = () => {
           </div>
 
           {/* Links Section */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 col-span-2">
+          <div id="links" className="grid grid-cols-2 md:grid-cols-3 gap-8 col-span-2">
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#">
+                  <Link href="#features">
                     Features
                   </Link>
                 </li>
@@ -41,7 +41,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#">
+                  <Link href="#links">
                     Changelog
                   </Link>
                 </li>
@@ -51,12 +51,12 @@ const Footer = () => {
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#">
+                  <Link href="#links">
                     About us
                   </Link>
                 </li>
                 <li>
-                  <Link href="#">
+                  <Link href="mailto:support@devoter.xyz">
                     Contact us
                   </Link>
                 </li>
@@ -66,13 +66,13 @@ const Footer = () => {
               <h3 className="font-semibold mb-4">Socials</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#">
-                    Twitter
+                  <Link href="https://x.com/devoterxyz" target="_blank" rel="noopener noreferrer">
+                    X
                   </Link>
                 </li>
                 <li>
-                  <Link href="#">
-                    Discord
+                  <Link href="https://farcaster.com/devoterxyz" target="_blank" rel="noopener noreferrer">
+                    Farcaster
                   </Link>
                 </li>
                 <li>
