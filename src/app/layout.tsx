@@ -3,8 +3,8 @@ import { Kumbh_Sans } from "next/font/google";
 import "./globals.css";
 
 const kumbhSans = Kumbh_Sans({
-  variable: "--font-kumbh-sans",
   subsets: ["latin"],
+  variable: "--font-kumbh-sans",
 });
 
 export const metadata: Metadata = {
