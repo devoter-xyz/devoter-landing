@@ -46,7 +46,7 @@ export default function Navbar() {
               className="relative group font-medium"
             >
               {item.label}
-              <span className="absolute bottom-0 left-0 w-full h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform origin-left bg-gradient-to-r from-cyan-400 to-purple-400" />
+              <span className="absolute bottom-0 left-0 w-full h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform origin-left bg-gradient-to-r from-secondary to-primary" />
             </a>
           ))}
         </nav>
