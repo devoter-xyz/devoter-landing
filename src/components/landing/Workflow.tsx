@@ -5,7 +5,7 @@ import {
   GlassCardContent
 } from "@/components/ui/glass-card";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { BarChart3, LucideIcon, Trophy, Vote, Wallet } from "lucide-react";
 import { useState } from "react";
 
@@ -44,7 +44,7 @@ const workflowSteps: WorkflowStep[] = [
     details:
       "Check the results of the votes on a weekly basis and see the impact of your contributions.",
     icon: Trophy,
-    gradient: "from-muted to-secondary",
+    gradient: "from-primary to-secondary",
   },
   {
     id: 4,
@@ -63,23 +63,27 @@ const Workflow = () => {
   const renderMockup = () => {
     const step = workflowSteps.find((s) => s.id === activeStep);
     if (!step) return null;
-
     const Icon = step.icon;
 
     return (
-      <div className="relative aspect-video rounded-xl bg-card/70 backdrop-blur-sm p-4 md:p-6 border border-border">
-        <div className="flex items-center justify-center h-full">
-          <div className="text-center">
-            <Icon className="w-16 h-16 mx-auto text-foreground mb-4" />
-            <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
-            <p className="text-muted-foreground mt-2">{step.description}</p>
-          </div>
-        </div>
-
-        {/* Floating Gradient Bubbles */}
-        <div className={cn("absolute top-2 left-2 w-8 h-8 rounded-full opacity-40 blur-sm", "bg-gradient-to-br", step.gradient)}></div>
-        <div className={cn("absolute bottom-2 right-2 w-8 h-8 rounded-full opacity-40 blur-sm", "bg-gradient-to-br", step.gradient)}></div>
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={step.id}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3 }}
+          className={cn(
+            "relative aspect-video rounded-xl p-6 flex flex-col items-center justify-center",
+            "bg-gradient-to-br",
+            step.gradient
+          )}
+        >
+          <Icon className="w-16 h-16 text-white mb-4" />
+          <h3 className="text-2xl font-bold text-white">{step.title}</h3>
+          <p className="mt-2 text-white/90 text-center">{step.description}</p>
+        </motion.div>
+      </AnimatePresence>
     );
   };
 
@@ -88,9 +92,7 @@ const Workflow = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">
-            <span className="">
-              How It Works
-            </span>
+            How It Works
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
             A simple, four-step process to make your voice heard in open-source development.
@@ -107,49 +109,28 @@ const Workflow = () => {
                   key={step.id}
                   onClick={() => setActiveStep(step.id)}
                   className={cn(
-                    "cursor-pointer transition-all duration-300 group",
+                    "cursor-pointer transition-all duration-300",
                     isActive ? "bg-card border-accent" : "hover:bg-muted/10"
                   )}
                 >
                   <GlassCardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      {/* Step Icon */}
+                    <div className="flex items-center gap-4">
                       <div
                         className={cn(
-                          "flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300",
+                          "flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center",
                           "bg-gradient-to-br",
-                          step.gradient,
-                          isActive ? "scale-110" : "group-hover:scale-105"
+                          step.gradient
                         )}
                       >
-                        <step.icon className="w-6 h-6 text-primary-foreground" />
+                        <step.icon className="w-5 h-5 text-white" />
                       </div>
-
-                      {/* Step Content */}
-                      <div className="flex-grow">
+                      <div>
                         <p className={cn("font-semibold mb-1", isActive ? "text-foreground" : "text-muted-foreground")}>
                           Step {index + 1}
                         </p>
-                        <h3 className={cn("text-xl font-bold", isActive ? "text-foreground" : "text-muted-foreground")}>
+                        <h3 className={cn("text-lg font-bold", isActive ? "text-foreground" : "text-muted-foreground")}>
                           {step.title}
                         </h3>
-                        <p className={cn("text-sm mt-1", isActive ? "text-muted-foreground" : "text-muted-foreground/80")}>
-                          {step.description}
-                        </p>
-
-                        {/* Expandable Details */}
-                        <motion.div
-                          initial={false}
-                          animate={{
-                            height: isActive ? "auto" : 0,
-                            opacity: isActive ? 1 : 0,
-                            marginTop: isActive ? "0.75rem" : 0,
-                          }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                          className="overflow-hidden"
-                        >
-                          <p className="text-sm text-muted-foreground">{step.details}</p>
-                        </motion.div>
                       </div>
                     </div>
                   </GlassCardContent>
@@ -159,29 +140,27 @@ const Workflow = () => {
           </div>
 
           {/* Step Preview */}
-          <div className="sticky top-24">
-            <GlassCard>
-              <GlassCardContent className="p-2">{renderMockup()}</GlassCardContent>
-            </GlassCard>
-          </div>
+          <div className="sticky top-24">{renderMockup()}</div>
         </div>
+
+        {/* Bottom CTA */}
         <div className="mt-32">
-        <GlassCard className="p-8 md:p-12 bg-card border border-border text-center">
-          <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Ready to Shape the Future?
-          </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            Join thousands of developers already using DeVoter to discover and promote innovative repositories.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <button className="px-8 py-3 font-bold text-primary-foreground bg-gradient-to-r from-secondary to-accent rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
-              Start Voting Now
-            </button>
-            <button className="px-8 py-3 font-bold text-foreground bg-transparent border border-border rounded-lg hover:bg-muted/10 transition-all duration-300">
-              Learn More
-            </button>
-          </div>
-        </GlassCard>
+          <GlassCard className="p-8 md:p-12 bg-card border border-border text-center">
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Ready to Shape the Future?
+            </h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+              Join thousands of developers already using DeVoter to discover and promote innovative repositories.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+              <button className="px-8 py-3 font-bold text-primary-foreground bg-gradient-to-r from-secondary to-accent rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                Start Voting Now
+              </button>
+              <button className="px-8 py-3 font-bold text-foreground bg-transparent border border-border rounded-lg hover:bg-muted/10 transition-all duration-300">
+                Learn More
+              </button>
+            </div>
+          </GlassCard>
         </div>
       </div>
     </section>
