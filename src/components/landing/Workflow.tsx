@@ -26,7 +26,7 @@ const workflowSteps: WorkflowStep[] = [
     details:
       "Securely connect with MetaMask, WalletConnect, or other supported wallets to manage your voting power.",
     icon: Wallet,
-    gradient: "from-primary to-accent",
+    gradient: "gradient-connect",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const workflowSteps: WorkflowStep[] = [
     details:
       "Use your voting power to influence the development direction of your favorite open-source projects.",
     icon: Vote,
-    gradient: "from-secondary to-accent",
+    gradient: "gradient-purple-blue",
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ const workflowSteps: WorkflowStep[] = [
     details:
       "Check the results of the votes on a weekly basis and see the impact of your contributions.",
     icon: Trophy,
-    gradient: "from-primary to-secondary",
+    gradient: "gradient-results",
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ const workflowSteps: WorkflowStep[] = [
     details:
       "An analytics dashboard helps you track your voting power, rank, and success rate over time.",
     icon: BarChart3,
-    gradient: "from-primary to-muted",
+    gradient: "gradient-impact",
   },
 ];
 
@@ -75,9 +75,12 @@ const Workflow = () => {
           transition={{ duration: 0.3 }}
           className={cn(
             "relative aspect-video rounded-xl p-6 flex flex-col items-center justify-center",
-            "bg-gradient-to-br",
             step.gradient
           )}
+          style={{
+            backgroundSize: "400% 400%",
+            animation: "gradient 5s ease infinite",
+          }}
         >
           <Icon className="w-16 h-16 text-white mb-4" />
           <h3 className="text-2xl font-bold text-white">{step.title}</h3>
@@ -110,25 +113,51 @@ const Workflow = () => {
                   onClick={() => setActiveStep(step.id)}
                   className={cn(
                     "cursor-pointer transition-all duration-300",
-                    isActive ? "bg-card border-accent" : "hover:bg-muted/10"
+                    isActive
+                      ? ["border-accent", step.gradient]
+                      : "hover:bg-muted/10"
                   )}
+                  style={
+                    isActive
+                      ? {
+                          backgroundSize: "400% 400%",
+                          animation: "gradient 5s ease infinite",
+                        }
+                      : {}
+                  }
                 >
                   <GlassCardContent className="p-6">
                     <div className="flex items-center gap-4">
                       <div
                         className={cn(
                           "flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center",
-                          "bg-gradient-to-br",
-                          step.gradient
+                          isActive ? "bg-white/20" : step.gradient
                         )}
                       >
-                        <step.icon className="w-5 h-5 text-white" />
+                        <step.icon
+                          className={cn(
+                            "w-5 h-5",
+                            isActive ? "text-white" : "text-white"
+                          )}
+                        />
                       </div>
                       <div>
-                        <p className={cn("font-semibold mb-1", isActive ? "text-foreground" : "text-muted-foreground")}>
+                        <p
+                          className={cn(
+                            "font-semibold mb-1",
+                            isActive
+                              ? "text-white/80"
+                              : "text-muted-foreground"
+                          )}
+                        >
                           Step {index + 1}
                         </p>
-                        <h3 className={cn("text-lg font-bold", isActive ? "text-foreground" : "text-muted-foreground")}>
+                        <h3
+                          className={cn(
+                            "text-lg font-bold",
+                            isActive ? "text-white" : "text-muted-foreground"
+                          )}
+                        >
                           {step.title}
                         </h3>
                       </div>
