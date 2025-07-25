@@ -54,16 +54,34 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMobileMenu}
-          className="md:hidden text-white"
+          className="md:hidden text-foreground relative h-6 w-6"
           aria-label="Toggle mobile menu"
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          <Menu
+            size={24}
+            className={clsx(
+              "transition-all duration-300 ease-in-out",
+              isMobileMenuOpen ? "rotate-90 scale-0" : "rotate-0 scale-100"
+            )}
+          />
+          <X
+            size={24}
+            className={clsx(
+              "absolute top-0 left-0 transition-all duration-300 ease-in-out",
+              isMobileMenuOpen ? "rotate-0 scale-100" : "-rotate-90 scale-0"
+            )}
+          />
         </button>
       </div>
 
       {/* Mobile Dropdown */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden px-4 pb-4 pt-2 backdrop-blur-xl bg-black/80 rounded-b-lg space-y-4">
+      <div
+        className={clsx(
+          "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
+          isMobileMenuOpen ? "max-h-96" : "max-h-0"
+        )}
+      >
+        <div className="px-4 pb-4 pt-2 backdrop-blur-xl bg-black/80 rounded-b-lg space-y-4">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -75,7 +93,7 @@ export default function Navbar() {
             </a>
           ))}
         </div>
-      )}
+      </div>
     </header>
   );
 }
