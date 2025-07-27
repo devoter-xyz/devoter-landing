@@ -26,7 +26,7 @@ const Footer = () => {
 
           {/* Links Section */}
           <div
-            id="links"
+            id="footer-links"
             className="grid grid-cols-2 md:grid-cols-3 gap-8 col-span-2"
           >
             <div>
@@ -39,7 +39,7 @@ const Footer = () => {
                   <Link href="#">Integrations</Link>
                 </li>
                 <li>
-                  <Link href="#links">Changelog</Link>
+                  <Link href="#">Changelog</Link>
                 </li>
               </ul>
             </div>
@@ -47,7 +47,7 @@ const Footer = () => {
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#links">About us</Link>
+                  <Link href="#">About us</Link>
                 </li>
                 <li>
                   <Link href="mailto:support@devoter.xyz">Contact us</Link>
