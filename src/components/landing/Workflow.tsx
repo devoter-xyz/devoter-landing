@@ -1,12 +1,10 @@
 "use client";
 
-import {
-  GlassCard,
-  GlassCardContent
-} from "@/components/ui/glass-card";
+import { GlassCard, GlassCardContent } from "@/components/ui/glass-card";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { BarChart3, LucideIcon, Trophy, Vote, Wallet } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 type WorkflowStep = {
@@ -98,7 +96,8 @@ const Workflow = () => {
             How It Works
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            A simple, four-step process to make your voice heard in open-source development.
+            A simple, four-step process to make your voice heard in open-source
+            development.
           </p>
         </div>
 
@@ -145,9 +144,7 @@ const Workflow = () => {
                         <p
                           className={cn(
                             "font-semibold mb-1",
-                            isActive
-                              ? "text-white/80"
-                              : "text-muted-foreground"
+                            isActive ? "text-white/80" : "text-muted-foreground"
                           )}
                         >
                           Step {index + 1}
@@ -179,15 +176,22 @@ const Workflow = () => {
               Ready to Shape the Future?
             </h3>
             <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-              Join thousands of developers already using DeVoter to discover and promote innovative repositories.
+              Join thousands of developers already using DeVoter to discover and
+              promote innovative repositories.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <button className="px-8 py-3 font-bold text-primary-foreground bg-gradient-to-r from-secondary to-accent rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+              <Link
+                href="#features"
+                className="px-8 py-3 font-bold text-primary-foreground bg-gradient-to-r from-secondary to-accent rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+              >
                 Start Voting Now
-              </button>
-              <button className="px-8 py-3 font-bold text-foreground bg-transparent border border-border rounded-lg hover:bg-muted/10 transition-all duration-300">
+              </Link>
+              <Link
+                href="#features"
+                className="px-8 py-3 font-bold text-foreground bg-transparent border border-border rounded-lg hover:bg-muted/10 transition-all duration-300"
+              >
                 Learn More
-              </button>
+              </Link>
             </div>
           </GlassCard>
         </div>

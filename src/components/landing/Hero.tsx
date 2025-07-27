@@ -1,5 +1,6 @@
 import { Zap } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -31,12 +32,18 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center md:justify-start items-center gap-4 mb-8">
-            <button className="px-6 py-3 rounded-full bg-gradient-to-r from-secondary to-accent text-primary-foreground font-semibold shadow-lg hover:scale-105 transition-transform">
+            <Link
+              href="#features"
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-secondary to-accent text-primary-foreground font-semibold shadow-lg hover:scale-105 transition-transform"
+            >
               Start Voting
-            </button>
-            <button className="px-6 py-3 rounded-full bg-accent/10 border border-accent text-accent-foreground font-semibold hover:bg-accent/20 transition-colors">
+            </Link>
+            <Link
+              href="#features"
+              className="px-6 py-3 rounded-full bg-accent/10 border border-accent text-accent-foreground font-semibold hover:bg-accent/20 transition-colors"
+            >
               View Demo
-            </button>
+            </Link>
           </div>
         </div>
 

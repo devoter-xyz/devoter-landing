@@ -1,68 +1,64 @@
 import {
-  Shield,
-  RefreshCw,
   BarChart,
-  Zap,
-  Database,
   CodeXml,
-} from 'lucide-react';
-import React from 'react';
-import { GlassCard } from '../ui/glass-card';
+  Database,
+  RefreshCw,
+  Shield,
+  Zap,
+} from "lucide-react";
+import { GlassCard } from "../ui/glass-card";
 
 const features = [
   {
     icon: <Shield size={32} />,
-    title: 'Non-Custodial Voting',
+    title: "Non-Custodial Voting",
     description:
-      'Your tokens remain secure in your wallet throughout the entire voting process. No custody risks, maximum security.',
-    gradient: 'from-primary to-accent',
-    delay: 200,
+      "Your tokens remain secure in your wallet throughout the entire voting process. No custody risks, maximum security.",
+    gradient: "from-primary to-accent",
   },
   {
     icon: <CodeXml size={32} />,
-    title: 'API Support',
+    title: "API Support",
     description:
-      'Integrate seamlessly with our robust API to automate voting, fetch analytics, and build custom governance tools for your community.',
-    gradient: 'from-secondary to-accent',
-    delay: 400,
+      "Integrate seamlessly with our robust API to automate voting, fetch analytics, and build custom governance tools for your community.",
+    gradient: "from-secondary to-accent",
   },
   {
     icon: <RefreshCw size={32} />,
-    title: 'Weekly Cycles',
+    title: "Weekly Cycles",
     description:
-      'Fresh repository discoveries every week. Regular community engagement with continuous evolution.',
-    gradient: 'from-muted to-accent',
-    delay: 600,
+      "Fresh repository discoveries every week. Regular community engagement with continuous evolution.",
+    gradient: "from-muted to-accent",
   },
   {
     icon: <BarChart size={32} />,
-    title: 'Real-Time Analytics',
+    title: "Real-Time Analytics",
     description:
-      'Transparent decision tracking with live voting results, participation metrics, and community insights.',
-    gradient: 'from-primary to-muted',
-    delay: 200,
+      "Transparent decision tracking with live voting results, participation metrics, and community insights.",
+    gradient: "from-primary to-muted",
   },
   {
     icon: <Zap size={32} />,
-    title: 'ScoutGame Integration',
+    title: "ScoutGame Integration",
     description:
-      'Seamlessly connected to the ScoutGame ecosystem for enhanced repository discovery and developer recognition.',
-    gradient: 'from-accent to-secondary',
-    delay: 400,
+      "Seamlessly connected to the ScoutGame ecosystem for enhanced repository discovery and developer recognition.",
+    gradient: "from-accent to-secondary",
   },
   {
     icon: <Database size={32} />,
-    title: 'Decentralized Storage',
+    title: "Decentralized Storage",
     description:
-      'All voting data and repository metadata stored on IPFS for transparency and immutable record keeping.',
-    gradient: 'from-secondary to-muted',
-    delay: 600,
+      "All voting data and repository metadata stored on IPFS for transparency and immutable record keeping.",
+    gradient: "from-secondary to-muted",
   },
 ];
 
 const Features = () => {
   return (
-    <section id="features" className="py-20 px-6 bg-accent/10 rounded-3xl text-foreground">
+    <section
+      id="features"
+      className="py-20 px-6 bg-accent/10 rounded-3xl text-foreground"
+    >
       <div className="container mx-auto max-w-7xl">
         {/* Section Heading */}
         <div className="text-center mb-16">
@@ -70,15 +66,16 @@ const Features = () => {
             Platform Features
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Built for developers, by developers. Experience the future of repository discovery through community-driven voting.
+            Built for developers, by developers. Experience the future of
+            repository discovery through community-driven voting.
           </p>
         </div>
 
         {/* Feature Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {features.map((feature, index) => (
+          {features.map((feature) => (
             <GlassCard
-              key={index}
+              key={feature.title}
               className="group relative overflow-hidden p-8 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl"
             >
               {/* Top Gradient Line */}

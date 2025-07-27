@@ -1,8 +1,6 @@
+import { Github, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaGithub } from "react-icons/fa";
-import { SiFarcaster } from "react-icons/si";
-import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -21,29 +19,27 @@ const Footer = () => {
               />
             </div>
             <p>
-            Empowering Web3 Communities and Projects Through Token-Weighted Voting
+              Empowering Web3 Communities and Projects Through Token-Weighted
+              Voting
             </p>
           </div>
 
           {/* Links Section */}
-          <div id="links" className="grid grid-cols-2 md:grid-cols-3 gap-8 col-span-2">
+          <div
+            id="links"
+            className="grid grid-cols-2 md:grid-cols-3 gap-8 col-span-2"
+          >
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#features">
-                    Features
-                  </Link>
+                  <Link href="#features">Features</Link>
                 </li>
                 <li>
-                  <Link href="#">
-                    Integrations
-                  </Link>
+                  <Link href="#">Integrations</Link>
                 </li>
                 <li>
-                  <Link href="#links">
-                    Changelog
-                  </Link>
+                  <Link href="#links">Changelog</Link>
                 </li>
               </ul>
             </div>
@@ -51,14 +47,10 @@ const Footer = () => {
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#links">
-                    About us
-                  </Link>
+                  <Link href="#links">About us</Link>
                 </li>
                 <li>
-                  <Link href="mailto:support@devoter.xyz">
-                    Contact us
-                  </Link>
+                  <Link href="mailto:support@devoter.xyz">Contact us</Link>
                 </li>
               </ul>
             </div>
@@ -66,17 +58,29 @@ const Footer = () => {
               <h3 className="font-semibold mb-4">Socials</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="https://x.com/devoterxyz" target="_blank" rel="noopener noreferrer">
+                  <Link
+                    href="https://x.com/devoterxyz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     X
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://farcaster.com/devoterxyz" target="_blank" rel="noopener noreferrer">
+                  <Link
+                    href="https://farcaster.com/devoterxyz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Farcaster
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://github.com/devoter-xyz" target="_blank" rel="noopener noreferrer">
+                  <Link
+                    href="https://github.com/devoter-xyz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     GitHub
                   </Link>
                 </li>
@@ -91,14 +95,36 @@ const Footer = () => {
             &copy; 2025 Devoter. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link href="https://x.com/devoterxyz" target="_blank" rel="noopener noreferrer">
-              <FaXTwitter />
+            <Link
+              href="https://x.com/devoterxyz"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Twitter />
             </Link>
-            <Link href="https://farcaster.com/devoterxyz" target="_blank" rel="noopener noreferrer">
-              <SiFarcaster />
+            <Link
+              href="https://farcaster.com/devoterxyz"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  fill="currentColor"
+                  d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m-8 168v-40h16v40Zm24-60a12 12 0 0 1-12 12h-4v-40h4a12 12 0 0 1 12 12Z"
+                />
+              </svg>
             </Link>
-            <Link href="https://github.com/devoter-xyz" target="_blank" rel="noopener noreferrer">
-              <FaGithub />
+            <Link
+              href="https://github.com/devoter-xyz"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github />
             </Link>
           </div>
         </div>
