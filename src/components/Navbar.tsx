@@ -19,11 +19,7 @@ export default function Navbar() {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <header
-      className={clsx(
-        "fixed top-0 w-full z-50 backdrop-blur-sm"
-      )}
-    >
+    <header className={clsx("fixed top-0 w-full z-50 backdrop-blur-sm")}>
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="#" className="flex items-center gap-2">
@@ -39,7 +35,7 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               onClick={closeMobileMenu}
@@ -47,7 +43,7 @@ export default function Navbar() {
             >
               {item.label}
               <span className="absolute bottom-0 left-0 w-full h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform origin-left bg-gradient-to-r from-secondary to-primary" />
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -83,14 +79,14 @@ export default function Navbar() {
       >
         <div className="px-4 pb-4 pt-2 backdrop-blur-xl bg-black/80 rounded-b-lg space-y-4">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               onClick={closeMobileMenu}
               className="block text-white font-medium"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
