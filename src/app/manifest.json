@@ -1,6 +1,8 @@
 {
   "name": "DEVoter",
   "short_name": "DEVoter",
+  "description": "An open-source voting platform that bridges web3 repository maintainers with the ScoutGame ecosystem.",
+  "start_url": "/",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
