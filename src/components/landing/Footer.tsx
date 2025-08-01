@@ -1,4 +1,5 @@
 import { Github, Twitter } from "lucide-react";
+import { SiFarcaster } from "react-icons/si";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -94,30 +95,20 @@ const Footer = () => {
           <p className="text-gray-500">
             &copy; 2025 Devoter. All rights reserved.
           </p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
+          <div className="flex space-x-4 mt-4 md:mt-0 items-center">
             <Link
               href="https://x.com/devoterxyz"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Twitter />
+              <Twitter className="text-blue-500" />
             </Link>
             <Link
               href="https://farcaster.com/devoterxyz"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 256 256"
-              >
-                <path
-                  fill="currentColor"
-                  d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m-8 168v-40h16v40Zm24-60a12 12 0 0 1-12 12h-4v-40h4a12 12 0 0 1 12 12Z"
-                />
-              </svg>
+              <SiFarcaster size={24} className="text-purple-500" />
             </Link>
             <Link
               href="https://github.com/devoter-xyz"
