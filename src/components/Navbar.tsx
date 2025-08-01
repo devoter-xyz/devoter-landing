@@ -33,18 +33,21 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={closeMobileMenu}
-              className="relative group font-medium"
-            >
-              {item.label}
-              <span className="absolute bottom-0 left-0 w-full h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform origin-left bg-gradient-to-r from-secondary to-primary" />
-            </Link>
-          ))}
+        <nav className="hidden md:flex items-center">
+          <ul className="flex items-center gap-6">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={closeMobileMenu}
+                  className="relative group font-medium"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform origin-left bg-gradient-to-r from-secondary to-primary" />
+                </Link>
+              </li>
+            ))}
+          </ul>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -77,18 +80,21 @@ export default function Navbar() {
           isMobileMenuOpen ? "max-h-96" : "max-h-0"
         )}
       >
-        <div className="px-4 pb-4 pt-2 backdrop-blur-xl bg-black/80 rounded-b-lg space-y-4">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={closeMobileMenu}
-              className="block text-white font-medium"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
+        <nav className="px-4 pb-4 pt-2 backdrop-blur-xl bg-black/80 rounded-b-lg">
+          <ul className="space-y-4">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={closeMobileMenu}
+                  className="block text-white font-medium"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </header>
   );
