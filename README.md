@@ -7,9 +7,9 @@
 ![TailwindCSS](https://img.shields.io/badge/Tailwind-38B2AC?style=for-the-badge&logo=tailwind-css)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel)
 
-**Marketing website for DEVoter - a voting platform for web3 repositories seeking ScoutGame inclusion.**
+**Marketing website for DEVoter - a voting platform for web3 repositories**
 
-[🌐 Live Demo](https://devoter.xyz) • [📱 Voting Platform](https://app.devoter.xyz) • [📚 Documentation](https://docs.devoter.xyz)
+[🌐 Live Demo](https://devoter.xyz) • [📱 Voting Platform](https://app.devoter.xyz)
 
 </div>
 
@@ -18,7 +18,6 @@
 ## ✨ Features
 
 - 🎯 **Platform Overview** - Clear value proposition and benefits
-- 🤝 **ScoutGame Partnership** - Integration information and rewards
 - 📱 **Responsive Design** - Optimized for mobile, tablet, and desktop
 - 🔗 **Direct Navigation** - Seamless link to voting platform
 
@@ -26,7 +25,7 @@
 
 | Technology | Purpose |
 |------------|---------|
-| Next.js 14 | React framework with TypeScript |
+| Next.js 15 | React framework with TypeScript |
 | TailwindCSS | Utility-first CSS styling |
 | Vercel | Hosting and deployment |
 
