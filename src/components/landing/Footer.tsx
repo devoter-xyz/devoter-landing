@@ -1,5 +1,4 @@
 import { Github, Twitter } from "lucide-react";
-import { SiFarcaster } from "react-icons/si";
 import Image from "next/image";
 import Link from "next/link";
 
