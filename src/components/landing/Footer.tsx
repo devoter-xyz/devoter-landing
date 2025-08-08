@@ -5,11 +5,11 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="py-12 bg-accent/10">
+    <footer className="py-12 bg-accent/10" aria-labelledby="footer-heading">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand Section */}
-          <div className="space-y-4">
+          <section className="space-y-4" aria-labelledby="footer-brand-heading">
             <div className="flex items-center space-x-2">
               <Image
                 src="/logo_text.svg"
@@ -19,16 +19,18 @@ const Footer = () => {
                 className="w-32"
               />
             </div>
+            <h2 id="footer-brand-heading" className="sr-only">Devoter Brand</h2>
             <p>
               Empowering Web3 Communities and Projects Through Token-Weighted
               Voting
             </p>
-          </div>
+          </section>
 
           {/* Links Section */}
-          <div
+          <nav
             id="footer-links"
             className="grid grid-cols-2 md:grid-cols-3 gap-8 col-span-2"
+            aria-label="Footer navigation"
           >
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
@@ -68,13 +70,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="https://farcaster.com/devoterxyz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Farcaster
-                  </Link>
+                  {/* Farcaster link removed due to 404. Add valid link if available. */}
                 </li>
                 <li>
                   <Link
@@ -87,7 +83,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </nav>
         </div>
 
         {/* Bottom Strip */}
@@ -103,13 +99,7 @@ const Footer = () => {
             >
               <Twitter className="text-blue-500" />
             </Link>
-            <Link
-              href="https://farcaster.com/devoterxyz"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <SiFarcaster size={24} className="text-purple-500" />
-            </Link>
+            {/* Farcaster icon removed due to 404. Add valid link if available. */}
             <Link
               href="https://github.com/devoter-xyz"
               target="_blank"

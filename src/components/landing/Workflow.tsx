@@ -89,21 +89,21 @@ const Workflow = () => {
   };
 
   return (
-    <section id="workflow" className="py-20 sm:py-32 text-foreground">
+    <section id="workflow" className="py-20 sm:py-32 text-foreground" aria-labelledby="workflow-heading">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">
+        <header className="text-center mb-12">
+          <h2 id="workflow-heading" className="text-3xl md:text-5xl font-bold tracking-tighter">
             How It Works
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
             A simple, four-step process to make your voice heard in open-source
             development.
           </p>
-        </div>
+        </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Step List */}
-          <div className="flex flex-col gap-4">
+          <nav aria-label="Workflow steps" className="flex flex-col gap-4">
             {workflowSteps.map((step, index) => {
               const isActive = activeStep === step.id;
               return (
@@ -124,6 +124,8 @@ const Workflow = () => {
                         }
                       : {}
                   }
+                  aria-current={isActive ? "step" : undefined}
+                  aria-labelledby={`workflow-step-${step.id}-title`}
                 >
                   <GlassCardContent className="p-6">
                     <div className="flex items-center gap-4">
@@ -150,6 +152,7 @@ const Workflow = () => {
                           Step {index + 1}
                         </p>
                         <h3
+                          id={`workflow-step-${step.id}-title`}
                           className={cn(
                             "text-lg font-bold",
                             isActive ? "text-white" : "text-muted-foreground"
@@ -163,14 +166,14 @@ const Workflow = () => {
                 </GlassCard>
               );
             })}
-          </div>
+          </nav>
 
           {/* Step Preview */}
           <div className="sticky top-24">{renderMockup()}</div>
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-32">
+        <footer className="mt-32">
           <GlassCard className="p-8 md:p-12 bg-card border border-border text-center">
             <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Ready to Shape the Future?
@@ -194,7 +197,7 @@ const Workflow = () => {
               </Link>
             </div>
           </GlassCard>
-        </div>
+        </footer>
       </div>
     </section>
   );

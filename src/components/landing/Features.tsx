@@ -58,18 +58,19 @@ const Features = () => {
     <section
       id="features"
       className="py-20 px-6 bg-accent/10 rounded-3xl text-foreground"
+      aria-labelledby="features-heading"
     >
       <div className="container mx-auto max-w-7xl">
         {/* Section Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-foreground to-muted-foreground mb-4">
+        <header className="text-center mb-16">
+          <h2 id="features-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-foreground to-muted-foreground mb-4">
             Platform Features
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Built for developers, by developers. Experience the future of
             repository discovery through community-driven voting.
           </p>
-        </div>
+        </header>
 
         {/* Feature Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
@@ -77,6 +78,7 @@ const Features = () => {
             <GlassCard
               key={feature.title}
               className="group relative overflow-hidden p-8 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl"
+              aria-labelledby={`feature-${feature.title.replace(/\s+/g, "-").toLowerCase()}-title`}
             >
               {/* Top Gradient Line */}
               <div className="absolute top-0 left-0 h-0 w-full bg-gradient-to-r from-primary via-accent to-muted transition-all duration-500 group-hover:h-1"></div>
@@ -90,7 +92,7 @@ const Features = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
+                <h3 id={`feature-${feature.title.replace(/\s+/g, "-").toLowerCase()}-title`} className="text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
                   {feature.title}
                 </h3>
 

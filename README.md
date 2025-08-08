@@ -21,7 +21,17 @@
 - 📱 **Responsive Design** - Optimized for mobile, tablet, and desktop
 - 🔗 **Direct Navigation** - Seamless link to voting platform
 
-## 🛠️ Tech Stack
+
+## � Google Search Console Integration
+
+To integrate with Google Search Console:
+
+1. Go to https://search.google.com/search-console and add your site (https://devoter.xyz).
+2. Verify ownership by adding the provided meta tag to your `src/app/layout.tsx` inside the `<head>` tag, or by uploading the HTML file to `/public`.
+3. Submit your sitemap (`https://devoter.xyz/sitemap.xml`) in the Search Console dashboard.
+4. Monitor performance, coverage, and fix any issues reported by Google.
+
+**Tip:** For Next.js, you can add the meta tag in the `metadata` object or directly in the layout file.
 
 | Technology | Purpose |
 |------------|---------|

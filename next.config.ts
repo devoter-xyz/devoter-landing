@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
 
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    formats: ["image/webp", "image/avif"],
+    minimumCacheTTL: 86400,
+    domains: ["devoter.xyz"],
+  },
+  compress: true,
+  experimental: {
+    optimizeCss: true,
+  },
 };
 
 export default nextConfig;
