@@ -21,7 +21,6 @@
 - 📱 **Responsive Design** - Optimized for mobile, tablet, and desktop
 - 🔗 **Direct Navigation** - Seamless link to voting platform
 
-## 🛠️ Tech Stack
 
 | Technology | Purpose |
 |------------|---------|
