@@ -22,10 +22,10 @@ export default function Navbar() {
     <header className={clsx("fixed top-0 w-full z-50 backdrop-blur-sm")}>
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link href="#" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2" aria-label="Go to homepage">
           <Image
             src="/logo_text.svg"
-            alt="Logo"
+            alt="Devoter logo"
             width={50}
             height={30}
             className="object-contain w-32"
@@ -33,7 +33,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center">
+        <nav className="hidden md:flex items-center" aria-label="Main navigation">
           <ul className="flex items-center gap-6">
             {navItems.map((item) => (
               <li key={item.href}>
