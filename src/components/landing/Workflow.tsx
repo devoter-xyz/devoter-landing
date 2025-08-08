@@ -191,7 +191,7 @@ const Workflow = () => {
               </Link>
               <Link
                 href="#features"
-                className="px-8 py-3 font-bold text-foreground bg-transparent border border-border rounded-lg hover:bg-muted/10 transition-all duration-300"
+                className="px-8 py-3 font-bold text-foreground bg-transparent border border-border rounded-lg hover:bg-muted/10 hover:scale-105 duration-300"
               >
                 Learn More
               </Link>
