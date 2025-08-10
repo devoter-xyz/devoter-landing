@@ -18,6 +18,7 @@ interface CarouselProps {
   className?: string;
 }
 
+
 export default function Carousel({
   items,
   autoPlay = true,
