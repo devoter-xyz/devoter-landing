@@ -6,24 +6,29 @@ export default function Hero() {
   const carouselItems = [
     {
       id: 1,
-      src: "/dash.svg",
+      src: "/interface/dash.svg",
       alt: "Dashboard preview",
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
+      src: "/interface/devoter-1.png",
       alt: "Analytics dashboard",
     },
     {
       id: 3,
-      src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
+      src: "/interface/devoter-3.png",
       alt: "Data visualization",
     },
     {
       id: 4,
-      src: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
+      src: "/interface/devoter-5.png",
       alt: "Web3 interface",
     },
+    {
+      id: 5,
+      src: "/interface/devoter-5.png",
+      alt: "Web3 collaboration",
+    }
   ];
 
   return (
