@@ -53,7 +53,7 @@ export default function Carousel({
   return (
     <div className={`relative overflow-hidden rounded-xl ${className}`}>
       {/* Main carousel container */}
-      <div className="relative aspect-[3/2] bg-muted/20">
+      <div className="relative aspect-[4/2.8]">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
