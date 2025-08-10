@@ -9,7 +9,7 @@ import { useState } from "react";
 const navItems = [
   { label: "Features", href: "#features" },
   { label: "How it Works", href: "#workflow" },
-  { label: "Community", href: "#community" },
+
 ];
 
 export default function Navbar() {
