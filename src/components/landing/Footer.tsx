@@ -48,9 +48,7 @@ const Footer = () => {
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
-                <li>
-                  <Link href="#">About us</Link>
-                </li>
+             
                 <li>
                   <Link href="mailto:support@devoter.xyz">Contact us</Link>
                 </li>
