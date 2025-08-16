@@ -5,10 +5,12 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Changelog | Devoter",
-  description: "Stay updated with the latest features, improvements, and bug fixes in Devoter.",
+  description:
+    "Stay updated with the latest features, improvements, and bug fixes in Devoter.",
   openGraph: {
     title: "Changelog | Devoter",
-    description: "Stay updated with the latest features, improvements, and bug fixes in Devoter.",
+    description:
+      "Stay updated with the latest features, improvements, and bug fixes in Devoter.",
   },
 };
 

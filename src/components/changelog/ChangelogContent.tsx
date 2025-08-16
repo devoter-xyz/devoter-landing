@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, ChevronRight, GitCommit, Sparkles, Bug, Zap } from "lucide-react";
+import {
+  Calendar,
+  ChevronRight,
+  GitCommit,
+  Sparkles,
+  Bug,
+  Zap,
+} from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 interface ChangelogEntry {
@@ -18,134 +25,62 @@ interface ChangelogEntry {
 
 const changelogData: ChangelogEntry[] = [
   {
-    version: "v1.2.0",
-    date: "2025-08-15",
-    title: "Enhanced Voting Experience",
-    description: "Major improvements to the voting interface with new features and better performance.",
-    type: "feature",
-    changes: [
-      {
-        type: "added",
-        description: "Real-time voting updates with WebSocket integration"
-      },
-      {
-        type: "added", 
-        description: "Advanced filtering options for repository discovery"
-      },
-      {
-        type: "improved",
-        description: "Optimized token-weighted voting algorithm"
-      },
-      {
-        type: "fixed",
-        description: "Resolved issue with vote counting in edge cases"
-      }
-    ]
-  },
-  {
-    version: "v1.1.5",
-    date: "2025-08-10",
-    title: "UI/UX Improvements",
-    description: "Visual enhancements and accessibility improvements across the platform.",
-    type: "improvement",
-    changes: [
-      {
-        type: "improved",
-        description: "Enhanced mobile responsiveness for voting interface"
-      },
-      {
-        type: "added",
-        description: "Dark mode theme with improved contrast ratios"
-      },
-      {
-        type: "fixed",
-        description: "Navigation menu accessibility issues"
-      },
-      {
-        type: "changed",
-        description: "Updated color scheme for better brand consistency"
-      }
-    ]
-  },
-  {
-    version: "v1.1.0",
-    date: "2025-08-05",
-    title: "ScoutGame Integration",
-    description: "Deep integration with ScoutGame ecosystem for seamless repository discovery.",
-    type: "feature",
-    changes: [
-      {
-        type: "added",
-        description: "Native ScoutGame API integration"
-      },
-      {
-        type: "added",
-        description: "Repository scoring based on ScoutGame metrics"
-      },
-      {
-        type: "added",
-        description: "Community badges and reputation system"
-      },
-      {
-        type: "improved",
-        description: "Performance optimizations for large datasets"
-      }
-    ]
-  },
-  {
-    version: "v1.0.2",
-    date: "2025-07-28",
-    title: "Security & Performance",
-    description: "Critical security updates and performance improvements.",
-    type: "bugfix",
-    changes: [
-      {
-        type: "fixed",
-        description: "Security vulnerability in token validation"
-      },
-      {
-        type: "improved",
-        description: "Database query optimization for faster load times"
-      },
-      {
-        type: "fixed",
-        description: "Memory leak in voting component"
-      },
-      {
-        type: "changed",
-        description: "Updated dependency versions for security patches"
-      }
-    ]
-  },
-  {
-    version: "v1.0.0",
-    date: "2025-07-20",
+    version: "v0.0.0",
+    date: "2025-08-16",
     title: "Initial Release",
-    description: "The first public release of Devoter platform with core voting functionality.",
+    description:
+      "First version of the platform with core functionality and foundational features.",
     type: "feature",
     changes: [
       {
         type: "added",
-        description: "Token-weighted voting system"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       },
       {
         type: "added",
-        description: "Repository discovery and ranking"
+        description:
+          "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       },
       {
         type: "added",
-        description: "Web3 wallet integration"
+        description:
+          "Ut enim ad minim veniam, quis nostrud exercitation ullamco",
       },
       {
         type: "added",
-        description: "Community governance features"
+        description:
+          "Duis aute irure dolor in reprehenderit in voluptate velit esse",
+      },
+      {
+        type: "changed",
+        description:
+          "Excepteur sint occaecat cupidatat non proident sunt in culpa",
+      },
+      {
+        type: "fixed",
+        description: "Qui officia deserunt mollit anim id est laborum",
+      },
+      {
+        type: "improved",
+        description:
+          "At vero eos et accusamus et iusto odio dignissimos ducimus",
       },
       {
         type: "added",
-        description: "Multi-chain support (Ethereum, Polygon, Arbitrum)"
-      }
-    ]
-  }
+        description:
+          "Qui blanditiis praesentium voluptatum deleniti atque corrupti",
+      },
+      {
+        type: "removed",
+        description: "Quos dolores et quas molestias excepturi sint occaecati",
+      },
+      {
+        type: "fixed",
+        description:
+          "Cupiditate non provident, similique sunt in culpa qui officia",
+      },
+    ],
+  },
 ];
 
 const getTypeIcon = (type: ChangelogEntry["type"]) => {
@@ -181,7 +116,7 @@ const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
-    day: "numeric"
+    day: "numeric",
   });
 };
 
@@ -202,13 +137,14 @@ export default function ChangelogContent() {
               Product Updates
             </p>
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4">
             Changelog
           </h1>
-          
+
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Stay updated with the latest features, improvements, and bug fixes in Devoter.
+            Stay updated with the latest features, improvements, and bug fixes
+            in Devoter.
           </p>
         </motion.div>
 
@@ -235,7 +171,7 @@ export default function ChangelogContent() {
                       </h2>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center text-sm text-muted-foreground">
                     <Calendar size={14} className="mr-1" />
                     {formatDate(entry.date)}
@@ -251,18 +187,20 @@ export default function ChangelogContent() {
                 <div className="space-y-2">
                   {entry.changes.map((change, changeIndex) => (
                     <div key={changeIndex} className="flex items-start gap-3">
-                      <ChevronRight size={16} className="mt-0.5 text-muted-foreground flex-shrink-0" />
+                      <ChevronRight
+                        size={16}
+                        className="mt-0.5 text-muted-foreground flex-shrink-0"
+                      />
                       <div className="flex-1">
                         <span
                           className={`inline-block px-2 py-1 rounded text-xs font-medium mr-2 ${getChangeTypeColor(
                             change.type
                           )}`}
                         >
-                          {change.type.charAt(0).toUpperCase() + change.type.slice(1)}
+                          {change.type.charAt(0).toUpperCase() +
+                            change.type.slice(1)}
                         </span>
-                        <span className="text-sm">
-                          {change.description}
-                        </span>
+                        <span className="text-sm">{change.description}</span>
                       </div>
                     </div>
                   ))}
