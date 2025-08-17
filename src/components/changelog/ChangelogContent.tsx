@@ -10,78 +10,7 @@ import {
   Zap,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
-
-interface ChangelogEntry {
-  version: string;
-  date: string;
-  title: string;
-  description: string;
-  type: "feature" | "improvement" | "bugfix" | "breaking";
-  changes: {
-    type: "added" | "changed" | "fixed" | "removed" | "improved";
-    description: string;
-  }[];
-}
-
-const changelogData: ChangelogEntry[] = [
-  {
-    version: "v0.0.0",
-    date: "2025-08-16",
-    title: "Initial Release",
-    description:
-      "First version of the platform with core functionality and foundational features.",
-    type: "feature",
-    changes: [
-      {
-        type: "added",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      },
-      {
-        type: "added",
-        description:
-          "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-      },
-      {
-        type: "added",
-        description:
-          "Ut enim ad minim veniam, quis nostrud exercitation ullamco",
-      },
-      {
-        type: "added",
-        description:
-          "Duis aute irure dolor in reprehenderit in voluptate velit esse",
-      },
-      {
-        type: "changed",
-        description:
-          "Excepteur sint occaecat cupidatat non proident sunt in culpa",
-      },
-      {
-        type: "fixed",
-        description: "Qui officia deserunt mollit anim id est laborum",
-      },
-      {
-        type: "improved",
-        description:
-          "At vero eos et accusamus et iusto odio dignissimos ducimus",
-      },
-      {
-        type: "added",
-        description:
-          "Qui blanditiis praesentium voluptatum deleniti atque corrupti",
-      },
-      {
-        type: "removed",
-        description: "Quos dolores et quas molestias excepturi sint occaecati",
-      },
-      {
-        type: "fixed",
-        description:
-          "Cupiditate non provident, similique sunt in culpa qui officia",
-      },
-    ],
-  },
-];
+import { changelogData, ChangelogEntry } from "@/lib/changelogData";
 
 const getTypeIcon = (type: ChangelogEntry["type"]) => {
   switch (type) {
@@ -174,7 +103,7 @@ export default function ChangelogContent() {
 
                   <div className="flex items-center text-sm text-muted-foreground">
                     <Calendar size={14} className="mr-1" />
-                    {formatDate(entry.date)}
+                    {entry.date}
                   </div>
                 </div>
 
