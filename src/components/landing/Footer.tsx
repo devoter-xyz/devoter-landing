@@ -52,6 +52,9 @@ const Footer = () => {
                 <li>
                   <Link href="mailto:support@devoter.xyz">Contact us</Link>
                 </li>
+                <li>
+                  <Link href="/terms">About DEVoter</Link>
+                </li>
               </ul>
             </div>
             <div>
@@ -63,7 +66,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    X
+                    Twitter
                   </Link>
                 </li>
                 <li>
@@ -84,7 +87,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Strip */}
-        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+        <div className="bg-gradient-to-r from-accent/5 via-primary to-accent/5 w-full h-[1px] mt-10" />
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500">
             &copy; 2025 Devoter. All rights reserved.
           </p>
@@ -96,13 +100,12 @@ const Footer = () => {
             >
               <Twitter className="text-blue-500" />
             </Link>
-            {/* Farcaster icon removed due to 404. Add valid link if available. */}
             <Link
               href="https://github.com/devoter-xyz"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Github />
+              <Github className="text-gray-500" />
             </Link>
           </div>
         </div>
