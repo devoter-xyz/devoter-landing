@@ -18,7 +18,9 @@ const Footer = () => {
                 className="w-32"
               />
             </div>
-            <h2 id="footer-brand-heading" className="sr-only">Devoter Brand</h2>
+            <h2 id="footer-brand-heading" className="sr-only">
+              Devoter Brand
+            </h2>
             <p>
               Empowering Web3 Communities and Projects Through Token-Weighted
               Voting
@@ -48,12 +50,11 @@ const Footer = () => {
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
-             
                 <li>
                   <Link href="mailto:support@devoter.xyz">Contact us</Link>
                 </li>
                 <li>
-                  <Link href="/terms">About DEVoter</Link>
+                  <Link href="/terms">Terms of Service</Link>
                 </li>
               </ul>
             </div>
@@ -89,9 +90,26 @@ const Footer = () => {
         {/* Bottom Strip */}
         <div className="bg-gradient-to-r from-accent/5 via-primary to-accent/5 w-full h-[1px] mt-10" />
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500">
-            &copy; 2025 Devoter. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <p className="text-gray-500">
+              &copy; 2025 Devoter. All rights reserved.
+            </p>
+            <div className="flex gap-4 text-sm">
+              <Link
+                href="/terms"
+                className="text-gray-500 hover:text-primary transition-colors"
+              >
+                Terms of Service
+              </Link>
+              <span className="text-gray-300">•</span>
+              <Link
+                href="mailto:support@devoter.xyz"
+                className="text-gray-500 hover:text-primary transition-colors"
+              >
+                Privacy Policy
+              </Link>
+            </div>
+          </div>
           <div className="flex space-x-4 mt-4 md:mt-0 items-center">
             <Link
               href="https://x.com/devoterxyz"
