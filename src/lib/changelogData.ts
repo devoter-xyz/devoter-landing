@@ -92,6 +92,11 @@ export const changelogData: ChangelogEntry[] = [
     description: "Introduced discussions with replies and voting, repository social links, seed likes, and model enhancements.",
     type: "feature",
     changes: [
+      { type: "added", description: "Feat/ API Schema (Aug 21)" },
+      { type: "added", description: "Feat/ Fetch and display top voted repositories with loading state in HomePage (Aug 19)" },
+      { type: "added", description: "Feat/Repo Database Functions (Aug 19)" },
+      { type: "fixed", description: "Fix/repo-page (Aug 19)" },
+      { type: "added", description: "Refactored the repository discussion page (Aug 17)" },
       { type: "added", description: "Feat/seed likes (Aug 17)" },
       { type: "added", description: "Add social links generation for repositories in seed data (Aug 17)" },
       { type: "added", description: "Add reply generation logic to seeding process and update seeder for discussions (Aug 16)" },
