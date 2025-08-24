@@ -103,7 +103,7 @@ const Footer = () => {
               </Link>
               <span className="text-gray-300">•</span>
               <Link
-                href="mailto:support@devoter.xyz"
+                href="/privacy"
                 className="text-gray-500 hover:text-primary transition-colors"
               >
                 Privacy Policy
