@@ -49,6 +49,12 @@ export default function ContactContent() {
               </p>
             </div>
 
+            {/* Warning: Demo Data */}
+            <div className="mb-4 p-4 bg-yellow-100 border-l-4 border-yellow-400 text-yellow-800 rounded">
+              <strong>Note:</strong> The contact information below is for
+              demonstration purposes only and does not represent real contact
+              details.
+            </div>
             <div className="space-y-6">
               {/* Email */}
               <Card className="p-6 hover:shadow-lg transition-shadow">
