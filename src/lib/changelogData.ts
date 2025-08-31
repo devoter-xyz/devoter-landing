@@ -92,6 +92,8 @@ export const changelogData: ChangelogEntry[] = [
     description: "Introduced discussions with replies and voting, repository social links, seed likes, and model enhancements.",
     type: "feature",
     changes: [
+      { type: "added", description: "Feat/ Fetching repo details from db instead of mock data (Aug 30)" },
+      { type: "changed", description: "Improved styling for repository cards (Aug 24)" },
       { type: "added", description: "Feat/ API Schema (Aug 21)" },
       { type: "added", description: "Feat/ Fetch and display top voted repositories with loading state in HomePage (Aug 19)" },
       { type: "added", description: "Feat/Repo Database Functions (Aug 19)" },
