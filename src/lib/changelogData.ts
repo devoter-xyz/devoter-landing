@@ -170,40 +170,6 @@ export const changelogData: ChangelogEntry[] = [
     type: "feature",
     changes: [
       {
-        type: "added",
-        description: "feat/Implement toggleFavorite action (Sept 4)",
-      },
-      {
-        type: "added",
-        description: "feat/Implement getFavoriteRepositories (Sept 4)",
-      },
-      {
-        type: "added",
-        description: "Feat/db clean (Sept 4)",
-      },
-      {
-        type: "added",
-        description: "Added notification popover  (Sept 1)",
-      },
-      {
-        type: "added",
-        description: "Feat/ dashboard (Aug 31)",
-      },
-      {
-        type: "added",
-        description:
-          "Feat/ Implement FavoritesPage component to display favorite repositories (Aug 31)",
-      },
-      {
-        type: "added",
-        description: "Feat/ Submit Repository dialog (Aug 31)",
-      },
-      {
-        type: "added",
-        description:
-          "Feat/ Fetching repo details from db instead of mock data (Aug 30)",
-      },
-      {
         type: "changed",
         description: "Improved styling for repository cards (Aug 24)",
       },
@@ -250,6 +216,50 @@ export const changelogData: ChangelogEntry[] = [
         description: "Back to home navigation improvement (Aug 15)",
       },
       { type: "added", description: "Leader board demo (Aug 13)" },
+    ],
+  },
+  {
+    version: "0.0.7",
+    date: "2025-09-6",
+    title: "Fetching data from database instead of mock data",
+    description:
+      "Changed the data fetching logic to fetch data from the database instead of mock data.",
+    type: "improvement",
+    changes: [
+      {
+        type: "added",
+        description: "Feat/Implement toggleFavorite action (Sept 4)",
+      },
+      {
+        type: "added",
+        description: "Feat/Implement getFavoriteRepositories (Sept 4)",
+      },
+      {
+        type: "improved",
+        description: "Feat/db clean (Sept 4)",
+      },
+      {
+        type: "added",
+        description: "Added notification popover  (Sept 1)",
+      },
+      {
+        type: "added",
+        description: "Feat/ dashboard (Aug 31)",
+      },
+      {
+        type: "added",
+        description:
+          "Feat/ Implement FavoritesPage component to display favorite repositories (Aug 31)",
+      },
+      {
+        type: "added",
+        description: "Feat/ Submit Repository dialog (Aug 31)",
+      },
+      {
+        type: "added",
+        description:
+          "Feat/ Fetching repo details from db instead of mock data (Aug 30)",
+      },
     ],
   },
 ];
