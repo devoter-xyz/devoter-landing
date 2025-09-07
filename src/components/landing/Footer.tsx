@@ -37,13 +37,10 @@ const Footer = () => {
               <h3 className="font-semibold mb-4">Product</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#features">Features</Link>
+                  <Link href="#features" className="hover:text-primary hover:underline transition-colors">Features</Link>
                 </li>
-                {/* <li>
-                  <Link href="#">Integrations</Link>
-                </li> */}
                 <li>
-                  <Link href="/changelog">Changelog</Link>
+                  <Link href="/changelog" className="hover:text-primary hover:underline transition-colors">Changelog</Link>
                 </li>
               </ul>
             </div>
@@ -51,10 +48,10 @@ const Footer = () => {
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/contact">Contact us</Link>
+                  <Link href="/contact" className="hover:text-primary hover:underline transition-colors">Contact us</Link>
                 </li>
                 <li>
-                  <Link href="/terms">Terms of Service</Link>
+                  <Link href="/terms" className="hover:text-primary hover:underline transition-colors">Terms of Service</Link>
                 </li>
               </ul>
             </div>
@@ -66,6 +63,7 @@ const Footer = () => {
                     href="https://x.com/devoterxyz"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hover:text-primary hover:underline transition-colors"
                   >
                     Twitter
                   </Link>
@@ -78,6 +76,7 @@ const Footer = () => {
                     href="https://github.com/devoter-xyz"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hover:text-primary hover:underline transition-colors"
                   >
                     GitHub
                   </Link>
@@ -97,14 +96,14 @@ const Footer = () => {
             <div className="flex gap-4 text-sm">
               <Link
                 href="/terms"
-                className="text-gray-500 hover:text-primary transition-colors"
+                className="text-gray-500 hover:text-primary hover:bg-primary/10 hover:underline transition-colors rounded px-2 py-1"
               >
                 Terms of Service
               </Link>
               <span className="text-gray-300">•</span>
               <Link
                 href="/privacy"
-                className="text-gray-500 hover:text-primary transition-colors"
+                className="text-gray-500 hover:text-primary hover:bg-primary/10 hover:underline transition-colors rounded px-2 py-1"
               >
                 Privacy Policy
               </Link>
