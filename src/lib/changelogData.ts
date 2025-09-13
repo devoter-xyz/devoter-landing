@@ -227,6 +227,18 @@ export const changelogData: ChangelogEntry[] = [
     type: "improvement",
     changes: [
       {
+        type: "improved",
+        description: "Enhance/About section (Sept 13)",
+      },
+      {
+        type: "added",
+        description: "Feat/Social Media Links for Repository Page (Sept 13)",
+      },
+      {
+        type: "added",
+        description: "Feat/Repository Submission Form With Validation (Sept 13)",
+      },
+      {
         type: "added",
         description: "Feat/Implement toggleFavorite action (Sept 4)",
       },
