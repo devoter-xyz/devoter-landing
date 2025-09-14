@@ -18,13 +18,13 @@ export default function TermsOfService() {
       </div>
 
       {/* Hero Section */}
-      <div className="container mx-auto px-4 py-16 max-w-4xl">
+      <main className="container mx-auto px-4 py-16 max-w-4xl">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
             Terms of Service
           </h1>
           <p className="text-xl text-muted-foreground">
-            Last updated: August 18, 2025
+            Last updated: September 14, 2025
           </p>
         </div>
 
@@ -351,7 +351,7 @@ export default function TermsOfService() {
             </CardContent>
           </Card>
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   );
