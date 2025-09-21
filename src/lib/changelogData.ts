@@ -227,6 +227,18 @@ export const changelogData: ChangelogEntry[] = [
     type: "improvement",
     changes: [
       {
+        type: "added",
+        description: "feat/Filter repository (Sept 17)",
+      },
+      {
+        type: "improved",
+        description: "Enhance/Close dialog after submitting form (Sept 17)",
+      },
+      {
+        type: "added",
+        description: "Feat/Toast notifications (Sept 13)",
+      },
+      {
         type: "improved",
         description: "Enhance/About section (Sept 13)",
       },
