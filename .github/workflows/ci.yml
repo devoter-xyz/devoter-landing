@@ -23,11 +23,19 @@ jobs:
         with:
           node-version: 20
 
+      - name: Enable Corepack (pnpm)
+        run: corepack enable
+
+      - name: Setup pnpm cache
+        uses: actions/setup-node@v4
+        with:
+          cache: "pnpm"
+
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Build Next.js app
-        run: npm run build
+        run: pnpm run build
 
       - name: Run Prettier lint check
-        run: npm run lint 
+        run: pnpm run lint
