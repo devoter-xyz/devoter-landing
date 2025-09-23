@@ -22,10 +22,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "pnpm"
 
       - name: Enable Corepack (pnpm)
         run: corepack enable
+
+      - name: Setup pnpm cache
+        uses: actions/setup-node@v4
+        with:
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
