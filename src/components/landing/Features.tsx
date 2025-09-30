@@ -1,108 +1,60 @@
-import {
-  BarChart,
-  CodeXml,
-  Database,
-  RefreshCw,
-  Shield,
-  Zap,
-} from "lucide-react";
 import { GlassCard } from "../ui/glass-card";
-
-const features = [
-  {
-    icon: <Shield size={32} />,
-    title: "Non-Custodial Voting",
-    description:
-      "Your tokens remain secure in your wallet throughout the entire voting process. No custody risks, maximum security.",
-    gradient: "from-primary to-accent",
-  },
-  {
-    icon: <CodeXml size={32} />,
-    title: "API Support",
-    description:
-      "Integrate seamlessly with our robust API to automate voting, fetch analytics, and build custom governance tools for your community.",
-    gradient: "from-secondary to-accent",
-  },
-  {
-    icon: <RefreshCw size={32} />,
-    title: "Weekly Cycles",
-    description:
-      "Fresh repository discoveries every week. Regular community engagement with continuous evolution.",
-    gradient: "from-muted to-accent",
-  },
-  {
-    icon: <BarChart size={32} />,
-    title: "Real-Time Analytics",
-    description:
-      "Transparent decision tracking with live voting results, participation metrics, and community insights.",
-    gradient: "from-primary to-muted",
-  },
-  {
-    icon: <Zap size={32} />,
-    title: "ScoutGame Integration",
-    description:
-      "Seamlessly connected to the ScoutGame ecosystem for enhanced repository discovery and developer recognition.",
-    gradient: "from-accent to-secondary",
-  },
-  {
-    icon: <Database size={32} />,
-    title: "Decentralized Storage",
-    description:
-      "All voting data and repository metadata stored on IPFS for transparency and immutable record keeping.",
-    gradient: "from-secondary to-muted",
-  },
-];
+import { features } from "../../lib/featuresData";
+import type { Feature } from "../../lib/featuresData";
 
 const Features = () => {
   return (
     <section
       id="features"
-      className="py-20 px-6 bg-accent/10 rounded-3xl text-foreground"
+      className="py-24 px-4 bg-gradient-to-br from-accent/20 via-background to-primary/10 rounded-[2.5rem] text-foreground shadow-2xl border border-accent/30"
       aria-labelledby="features-heading"
     >
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-6xl">
         {/* Section Heading */}
-        <header className="text-center mb-16">
-          <h2 id="features-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-foreground to-muted-foreground mb-4">
-            Platform Features
+        <header className="text-center mb-20">
+          <h2
+            id="features-heading"
+            className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-b from-primary to-accent drop-shadow-lg mb-6"
+          >
+            Why Choose Devoter?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Built for developers, by developers. Experience the future of
-            repository discovery through community-driven voting.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Discover a new era of open-source governance. Our platform empowers communities with secure, transparent, and developer-centric voting.
           </p>
         </header>
 
-        {/* Feature Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {features.map((feature) => (
-            <GlassCard
-              key={feature.title}
-              className="group relative overflow-hidden p-8 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl"
-              aria-labelledby={`feature-${feature.title.replace(/\s+/g, "-").toLowerCase()}-title`}
-            >
-              {/* Top Gradient Line */}
-              <div className="absolute top-0 left-0 h-0 w-full bg-gradient-to-r from-primary via-accent to-muted transition-all duration-500 group-hover:h-1"></div>
-
-              <div className="flex flex-col items-start">
-                {/* Icon */}
-                <div
-                  className={`mb-6 rounded-lg p-3 text-white bg-gradient-to-br ${feature.gradient} transition-all duration-300 group-hover:scale-110`}
-                >
-                  {feature.icon}
+        {/* Feature Cards Grid - Redesigned */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {features.map((feature: Feature, i: number) => {
+            const Icon = feature.icon;
+            return (
+              <GlassCard
+                key={feature.title}
+                className="group relative flex flex-col items-center justify-between h-full p-10 bg-background/80 border border-accent/20 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                aria-labelledby={`feature-${feature.title.replace(/\s+/g, "-").toLowerCase()}-title`}
+              >
+                {/* Animated Gradient Ring */}
+                <div className="relative mb-7">
+                  <span
+                    className={`absolute inset-0 rounded-full blur-md opacity-60 animate-pulse bg-gradient-to-br ${feature.gradient}`}
+                    style={{ zIndex: 0 }}
+                  ></span>
+                  <span className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-background border-2 border-accent shadow-md">
+                    <Icon size={32} />
+                  </span>
                 </div>
-
-                {/* Title */}
-                <h3 id={`feature-${feature.title.replace(/\s+/g, "-").toLowerCase()}-title`} className="text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
+                <h3
+                  id={`feature-${feature.title.replace(/\s+/g, "-").toLowerCase()}-title`}
+                  className="text-2xl font-bold text-foreground mb-4 text-center group-hover:text-accent transition-colors duration-300"
+                >
                   {feature.title}
                 </h3>
-
-                {/* Description */}
-                <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                <p className="text-base text-muted-foreground text-center group-hover:text-foreground transition-colors duration-300">
                   {feature.description}
                 </p>
-              </div>
-            </GlassCard>
-          ))}
+              </GlassCard>
+            );
+          })}
         </div>
       </div>
     </section>
