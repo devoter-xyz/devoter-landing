@@ -25,7 +25,7 @@ const Features = () => {
 
         {/* Feature Cards Grid - Redesigned */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {features.map((feature: Feature, i: number) => {
+          {features.map((feature: Feature) => {
             const Icon = feature.icon;
             return (
               <GlassCard
