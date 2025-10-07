@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
   },
   compress: true,
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false,
   },
 };
 
