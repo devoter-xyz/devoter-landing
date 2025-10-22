@@ -19,7 +19,7 @@ export default function Navbar() {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <header className={clsx("fixed top-0 w-full z-50 backdrop-blur-sm")}>
+    <header className={clsx("fixed top-0 w-full z-50 backdrop-blur-sm h-16")}>
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2" aria-label="Go to homepage">
@@ -55,6 +55,8 @@ export default function Navbar() {
           onClick={toggleMobileMenu}
           className="md:hidden text-foreground relative h-6 w-6"
           aria-label="Toggle mobile menu"
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           <Menu
             size={24}
@@ -75,12 +77,13 @@ export default function Navbar() {
 
       {/* Mobile Dropdown */}
       <div
+        id="mobile-menu"
         className={clsx(
           "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
           isMobileMenuOpen ? "max-h-96" : "max-h-0"
         )}
       >
-        <nav className="px-4 pb-4 pt-2 backdrop-blur-xl bg-black/80 rounded-b-lg">
+        <nav className="px-4 pb-4 pt-2 backdrop-blur-xl bg-black/80 rounded-b-lg" aria-label="Mobile navigation">
           <ul className="space-y-4">
             {navItems.map((item) => (
               <li key={item.href}>
