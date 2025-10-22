@@ -83,7 +83,7 @@ export default function Navbar() {
           isMobileMenuOpen ? "max-h-96" : "max-h-0"
         )}
       >
-        <nav className="px-4 pb-4 pt-2 backdrop-blur-xl bg-black/80 rounded-b-lg" role="menu">
+        <nav className="px-4 pb-4 pt-2 backdrop-blur-xl bg-black/80 rounded-b-lg" aria-label="Mobile navigation">
           <ul className="space-y-4">
             {navItems.map((item) => (
               <li key={item.href}>
@@ -91,7 +91,6 @@ export default function Navbar() {
                   href={item.href}
                   onClick={closeMobileMenu}
                   className="block text-white font-medium"
-                  role="menuitem"
                 >
                   {item.label}
                 </Link>
