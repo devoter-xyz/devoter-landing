@@ -5,21 +5,24 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { workflowSteps } from "@/lib/workflowData";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useId, useState, type KeyboardEvent } from 'react';
 
 
 
 const Workflow = () => {
   const [activeStep, setActiveStep] = useState(1);
 
-  const onTabListKeyDown = (e: React.KeyboardEvent) => {
+  const uid = useId();
+
+  const onTabListKeyDown = (e: KeyboardEvent) => {
     const idx = workflowSteps.findIndex((s) => s.id === activeStep)
+    if (idx < 0) return
     const last = workflowSteps.length - 1
     const go = (i: number) => {
       const id = workflowSteps[i].id
       setActiveStep(id)
       queueMicrotask(() =>
-        document.getElementById(`workflow-step-${id}-tab`)?.focus()
+        document.getElementById(`workflow-${uid}-step-${id}-tab`)?.focus()
       )
     }
     switch (e.key) {
@@ -33,6 +36,10 @@ const Workflow = () => {
         e.preventDefault(); go(0); break
       case 'End':
         e.preventDefault(); go(last); break
+      case 'PageDown':
+        e.preventDefault(); go((idx + 1) % workflowSteps.length); break
+      case 'PageUp':
+        e.preventDefault(); go((idx - 1 + workflowSteps.length) % workflowSteps.length); break
     }
   }
 
@@ -85,21 +92,11 @@ const Workflow = () => {
             {workflowSteps.map((step, index) => {
               const isActive = activeStep === step.id;
               return (
-                <button
+                <GlassCard
                   key={step.id}
-                  id={`workflow-step-${step.id}-tab`}
-                  role="tab"
-                  aria-selected={isActive}
-                  tabIndex={isActive ? 0 : -1}
-                  onClick={() => {
-                    setActiveStep(step.id);
-                    queueMicrotask(() =>
-                      document.getElementById(`workflow-step-${step.id}-tab`)?.focus()
-                    );
-                  }}
                   className={cn(
-                    "w-full text-left focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-xl",
-                    "cursor-pointer transition-all duration-300",
+                    "h-full w-full text-left focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-xl",
+                    "transition-all duration-300",
                     isActive
                       ? ["border-accent", step.gradient]
                       : "hover:bg-muted/10"
@@ -112,11 +109,31 @@ const Workflow = () => {
                         }
                       : {}
                   }
-                  aria-labelledby={`workflow-step-${step.id}-title`}
-                  aria-controls="workflow-step-panel"
                 >
-                  <GlassCard className="h-full">
-                    <GlassCardContent className="p-6">
+                  <div
+                    id={`workflow-${uid}-step-${step.id}-tab`}
+                    role="tab"
+                    tabIndex={isActive ? 0 : -1}
+                    aria-selected={isActive}
+                    aria-labelledby={`workflow-${uid}-step-${step.id}-label workflow-${uid}-step-${step.id}-title`}
+                    aria-controls={`workflow-${uid}-step-panel`}
+                    onClick={() => {
+                      setActiveStep(step.id);
+                      queueMicrotask(() =>
+                        document.getElementById(`workflow-${uid}-step-${step.id}-tab`)?.focus()
+                      );
+                    }}
+                    onKeyDown={(e: KeyboardEvent) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setActiveStep(step.id);
+                        queueMicrotask(() =>
+                          document.getElementById(`workflow-${uid}-step-${step.id}-tab`)?.focus()
+                        );
+                      }
+                    }}
+                    className="cursor-pointer p-6"
+                  >
                     <div className="flex items-center gap-4">
                       <div
                         className={cn(
@@ -133,6 +150,7 @@ const Workflow = () => {
                       </div>
                       <div>
                         <p
+                          id={`workflow-${uid}-step-${step.id}-label`}
                           className={cn(
                             "font-semibold mb-1",
                             isActive ? "text-white/80" : "text-muted-foreground"
@@ -141,7 +159,7 @@ const Workflow = () => {
                           Step {index + 1}
                         </p>
                         <h3
-                          id={`workflow-step-${step.id}-title`}
+                          id={`workflow-${uid}-step-${step.id}-title`}
                           className={cn(
                             "text-lg font-bold",
                             isActive ? "text-white" : "text-muted-foreground"
@@ -151,18 +169,17 @@ const Workflow = () => {
                         </h3>
                       </div>
                     </div>
-                    </GlassCardContent>
-                  </GlassCard>
-                </button>
+                  </div>
+                </GlassCard>
               );
             })}
           </nav>
 
           {/* Step Preview */}
           <div
-            id="workflow-step-panel"
+            id={`workflow-${uid}-step-panel`}
             role="tabpanel"
-            aria-labelledby={`workflow-step-${activeStep}-tab`}
+            aria-labelledby={`workflow-${uid}-step-${activeStep}-tab`}
             className="sticky top-24"
           >
             {renderMockup()}
