@@ -1,5 +1,7 @@
+import type { IconName } from '../components/ui/Icon';
+
 export interface Feature {
-  icon: string;
+  icon: IconName;
   title: string;
   description: string;
   gradient: string;
