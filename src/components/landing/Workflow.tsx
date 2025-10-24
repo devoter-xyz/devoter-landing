@@ -134,6 +134,7 @@ const Workflow = () => {
             id="workflow-step-preview"
             role="tabpanel"
             aria-live="polite"
+            aria-labelledby={`workflow-step-${activeStep}-title`}
             className="sticky top-24"
           >
             {renderMockup()}
