@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
  */
 interface CustomButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  variant?: "default" | "transparent" | "primary" | "secondary" | "ghost";
+  variant?: "transparent" | "primary" | "secondary" | "ghost";
   onClick?: () => void;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
