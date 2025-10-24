@@ -57,14 +57,15 @@ const Workflow = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Step List */}
-          <nav aria-label="Workflow steps" className="flex flex-col gap-4">
+          <nav aria-label="Workflow steps" role="tablist" className="flex flex-col gap-4">
             {workflowSteps.map((step, index) => {
               const isActive = activeStep === step.id;
               return (
-                <GlassCard
+                <button
                   key={step.id}
                   onClick={() => setActiveStep(step.id)}
                   className={cn(
+                    "w-full text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded-xl",
                     "cursor-pointer transition-all duration-300",
                     isActive
                       ? ["border-accent", step.gradient]
@@ -80,8 +81,13 @@ const Workflow = () => {
                   }
                   aria-current={isActive ? "step" : undefined}
                   aria-labelledby={`workflow-step-${step.id}-title`}
+                  aria-controls="workflow-step-preview"
+                  role="tab"
+                  aria-selected={isActive}
+                  tabIndex={isActive ? 0 : -1}
                 >
-                  <GlassCardContent className="p-6">
+                  <GlassCard className="h-full">
+                    <GlassCardContent className="p-6">
                     <div className="flex items-center gap-4">
                       <div
                         className={cn(
@@ -116,14 +122,22 @@ const Workflow = () => {
                         </h3>
                       </div>
                     </div>
-                  </GlassCardContent>
-                </GlassCard>
+                    </GlassCardContent>
+                  </GlassCard>
+                </button>
               );
             })}
           </nav>
 
           {/* Step Preview */}
-          <div className="sticky top-24">{renderMockup()}</div>
+          <div
+            id="workflow-step-preview"
+            role="tabpanel"
+            aria-live="polite"
+            className="sticky top-24"
+          >
+            {renderMockup()}
+          </div>
         </div>
 
         {/* Bottom CTA */}
