@@ -112,9 +112,8 @@ const Workflow = () => {
                         }
                       : {}
                   }
-                  aria-current={isActive ? "step" : undefined}
                   aria-labelledby={`workflow-step-${step.id}-title`}
-                  aria-controls={`workflow-step-panel-${step.id}`}
+                  aria-controls="workflow-step-panel"
                 >
                   <GlassCard className="h-full">
                     <GlassCardContent className="p-6">
@@ -161,9 +160,8 @@ const Workflow = () => {
 
           {/* Step Preview */}
           <div
-            id={`workflow-step-panel-${activeStep}`}
+            id="workflow-step-panel"
             role="tabpanel"
-            aria-live="polite"
             aria-labelledby={`workflow-step-${activeStep}-tab`}
             className="sticky top-24"
           >
