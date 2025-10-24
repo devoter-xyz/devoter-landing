@@ -72,7 +72,7 @@ export default function ChangelogContent() {
 
         {/* Changelog Entries */}
         <div className="space-y-8">
-          {changelogData.map((entry, index) => (
+          {changelogData.map((entry: ChangelogEntry, index) => (
             <motion.div
               key={entry.version}
               initial={{ opacity: 0, y: 30 }}
@@ -107,7 +107,7 @@ export default function ChangelogContent() {
 
                 {/* Changes List */}
                 <div className="space-y-2">
-                  {entry.changes.map((change, changeIndex) => (
+                  {entry.changes.map((change: ChangelogEntry['changes'][number], changeIndex) => (
                     <div key={changeIndex} className="flex items-start gap-3">
                       <ChevronRight
                         size={16}
