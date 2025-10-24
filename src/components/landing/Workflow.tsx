@@ -5,12 +5,36 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { workflowSteps } from "@/lib/workflowData";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useState } from "react";
 
 
 
 const Workflow = () => {
   const [activeStep, setActiveStep] = useState(1);
+
+  const onTabListKeyDown = (e: React.KeyboardEvent) => {
+    const idx = workflowSteps.findIndex((s) => s.id === activeStep)
+    const last = workflowSteps.length - 1
+    const go = (i: number) => {
+      const id = workflowSteps[i].id
+      setActiveStep(id)
+      queueMicrotask(() =>
+        document.getElementById(`workflow-step-${id}-tab`)?.focus()
+      )
+    }
+    switch (e.key) {
+      case 'ArrowDown':
+      case 'ArrowRight':
+        e.preventDefault(); go((idx + 1) % workflowSteps.length); break
+      case 'ArrowUp':
+      case 'ArrowLeft':
+        e.preventDefault(); go((idx - 1 + workflowSteps.length) % workflowSteps.length); break
+      case 'Home':
+        e.preventDefault(); go(0); break
+      case 'End':
+        e.preventDefault(); go(last); break
+    }
+  }
 
   const renderMockup = () => {
     const step = workflowSteps.find((s) => s.id === activeStep);
@@ -57,15 +81,24 @@ const Workflow = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Step List */}
-          <nav aria-label="Workflow steps" role="tablist" className="flex flex-col gap-4">
+          <nav aria-label="Workflow steps" role="tablist" aria-orientation="vertical" onKeyDown={onTabListKeyDown} className="flex flex-col gap-4">
             {workflowSteps.map((step, index) => {
               const isActive = activeStep === step.id;
               return (
                 <button
                   key={step.id}
-                  onClick={() => setActiveStep(step.id)}
+                  id={`workflow-step-${step.id}-tab`}
+                  role="tab"
+                  aria-selected={isActive}
+                  tabIndex={isActive ? 0 : -1}
+                  onClick={() => {
+                    setActiveStep(step.id);
+                    queueMicrotask(() =>
+                      document.getElementById(`workflow-step-${step.id}-tab`)?.focus()
+                    );
+                  }}
                   className={cn(
-                    "w-full text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded-xl",
+                    "w-full text-left focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-xl",
                     "cursor-pointer transition-all duration-300",
                     isActive
                       ? ["border-accent", step.gradient]
@@ -81,10 +114,7 @@ const Workflow = () => {
                   }
                   aria-current={isActive ? "step" : undefined}
                   aria-labelledby={`workflow-step-${step.id}-title`}
-                  aria-controls="workflow-step-preview"
-                  role="tab"
-                  aria-selected={isActive}
-                  tabIndex={isActive ? 0 : -1}
+                  aria-controls={`workflow-step-panel-${step.id}`}
                 >
                   <GlassCard className="h-full">
                     <GlassCardContent className="p-6">
@@ -131,10 +161,10 @@ const Workflow = () => {
 
           {/* Step Preview */}
           <div
-            id="workflow-step-preview"
+            id={`workflow-step-panel-${activeStep}`}
             role="tabpanel"
             aria-live="polite"
-            aria-labelledby={`workflow-step-${activeStep}-title`}
+            aria-labelledby={`workflow-step-${activeStep}-tab`}
             className="sticky top-24"
           >
             {renderMockup()}
