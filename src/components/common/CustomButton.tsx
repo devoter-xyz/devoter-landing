@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
  */
 interface CustomButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  variant?: "default" | "transparent";
+  variant?: "default" | "transparent" | "primary" | "secondary" | "ghost";
   onClick?: () => void;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
@@ -26,7 +26,7 @@ interface CustomButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement
 
 export function CustomButton({
   children,
-  variant = "default",
+  variant = "primary", // Changed default variant to 'primary'
   onClick,
   leftIcon,
   rightIcon,
@@ -39,6 +39,9 @@ export function CustomButton({
       onClick={onClick}
       className={cn(
         variant === "transparent" && "bg-transparent border border-primary hover:bg-primary/10",
+        variant === "primary" && "bg-primary text-primary-foreground hover:bg-primary/90",
+        variant === "secondary" && "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        variant === "ghost" && "hover:bg-accent hover:text-accent-foreground",
         className
       )}
       aria-label={ariaLabel}
