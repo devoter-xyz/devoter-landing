@@ -1,6 +1,7 @@
 import { GlassCard } from "../ui/glass-card";
 import { features } from "../../lib/featuresData";
 import type { Feature } from "../../lib/featuresData";
+import { Icon } from "../ui/Icon";
 
 const Features = () => {
   return (
@@ -26,7 +27,7 @@ const Features = () => {
         {/* Feature Cards Grid - Redesigned */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {features.map((feature: Feature) => {
-            const Icon = feature.icon;
+            const IconName = feature.icon;
             return (
               <GlassCard
                 key={feature.title}
@@ -40,7 +41,7 @@ const Features = () => {
                     style={{ zIndex: 0 }}
                   ></span>
                   <span className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-background border-2 border-accent shadow-md">
-                    <Icon size={32} />
+                    <Icon name={IconName} size={32} />
                   </span>
                 </div>
                 <h3
