@@ -3,20 +3,54 @@
 import { motion } from "framer-motion";
 import { Users } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { CustomButton } from "../common/CustomButton";
+import { Icon } from "../ui/Icon";
 
-export default function ContactForm() {
-  const [formData, setFormData] = useState({
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+interface FormErrors {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  subject?: string;
+  message?: string;
+  submit?: string;
+}
+
+const ContactForm: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
     email: "",
     subject: "",
     message: "",
   });
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [errors, setErrors] = useState<FormErrors>({});
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const successTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+      if (successTimeoutRef.current) {
+        clearTimeout(successTimeoutRef.current);
+        successTimeoutRef.current = null;
+      }
+    };
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -43,25 +77,29 @@ export default function ContactForm() {
     e.preventDefault();
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
     }
 
+    setLoading(true);
+    setErrors((prev) => ({ ...prev, submit: undefined }));
+
     timeoutRef.current = setTimeout(async () => {
-      if (validate()) {
-        setLoading(true);
+      try {
         // Simulate API call
         await new Promise((resolve) => setTimeout(resolve, 1500));
-        setLoading(false);
         setSubmitted(true);
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-        setTimeout(() => setSubmitted(false), 5000); // Hide success message after 5 seconds
+        setFormData({ firstName: '', lastName: '', email: '', subject: '', message: '' });
+        if (successTimeoutRef.current) {
+          clearTimeout(successTimeoutRef.current);
+          successTimeoutRef.current = null;
+        }
+        successTimeoutRef.current = setTimeout(() => setSubmitted(false), 5000);
+      } catch (error) {
+        setErrors(prev => ({ ...prev, submit: 'Failed to send message. Please try again.' }));
+      } finally {
+        setLoading(false);
       }
-    }, 500); // Debounce for 500ms
+    }, 1000);
   };  return (
     <motion.div
       initial={{ opacity: 0, x: 30 }}
@@ -188,6 +226,10 @@ export default function ContactForm() {
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
+
+          {errors.submit && (
+            <p className="text-red-500 text-sm mt-2">{errors.submit}</p>
+          )}
 
           {submitted && (
             <div className="mt-4 p-3 bg-green-100 text-green-700 rounded-lg">
