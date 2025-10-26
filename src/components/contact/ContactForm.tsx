@@ -24,7 +24,7 @@ interface FormErrors {
   submit?: string;
 }
 
-const ContactForm: React.FC = () => {
+export const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -59,7 +59,7 @@ const ContactForm: React.FC = () => {
   };
 
   const validate = () => {
-    let newErrors: { [key: string]: string } = {};
+    const newErrors: FormErrors = {};
     if (!formData.firstName) newErrors.firstName = "First Name is required";
     if (!formData.lastName) newErrors.lastName = "Last Name is required";
     if (!formData.email) {

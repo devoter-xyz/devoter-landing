@@ -2,7 +2,7 @@
 
 import ContactHeader from "./ContactHeader";
 import ContactInfo from "./ContactInfo";
-import ContactForm from "./ContactForm";
+import { ContactForm } from "./ContactForm";
 
 export default function ContactContent() {
   return (
