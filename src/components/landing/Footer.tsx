@@ -3,6 +3,7 @@
 import { Github, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { footerLinks } from "../../lib/footerLinks";
 
 /**
  * Footer component for the Devoter landing page.
@@ -47,85 +48,23 @@ const Footer = () => {
             className="grid grid-cols-2 md:grid-cols-3 gap-10 col-span-2"
             aria-label="Footer navigation"
           >
-            {/* Product links */}
-            <div>
-              <h3 className="font-bold mb-6 text-lg md:text-xl tracking-wide text-gray-800">Product</h3>
-              <ul className="space-y-3">
-                <li>
-                  {/* Features anchor link */}
-                  <Link
-                    href="#features"
-                    className="text-base md:text-lg font-medium text-gray-700 transition-all duration-200 hover:text-primary hover:scale-105 hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
-                  >
-                    Features
-                  </Link>
-                </li>
-                <li>
-                  {/* Changelog page link */}
-                  <Link
-                    href="/changelog"
-                    className="text-base md:text-lg font-medium text-gray-700 transition-all duration-200 hover:text-primary hover:scale-105 hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
-                  >
-                    Changelog
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            {/* Company links */}
-            <div>
-              <h3 className="font-bold mb-6 text-lg md:text-xl tracking-wide text-gray-800">Company</h3>
-              <ul className="space-y-3">
-                <li>
-                  {/* Contact page link */}
-                  <Link
-                    href="/contact"
-                    className="text-base md:text-lg font-medium text-gray-700 transition-all duration-200 hover:text-primary hover:scale-105 hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
-                  >
-                    Contact us
-                  </Link>
-                </li>
-                <li>
-                  {/* Terms of Service page link */}
-                  <Link
-                    href="/terms"
-                    className="text-base md:text-lg font-medium text-gray-700 transition-all duration-200 hover:text-primary hover:scale-105 hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
-                  >
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            {/* Social links */}
-            <div>
-              <h3 className="font-bold mb-6 text-lg md:text-xl tracking-wide text-gray-800">Socials</h3>
-              <ul className="space-y-3">
-                <li>
-                  {/* Twitter/X link */}
-                  <Link
-                    href="https://x.com/devoterxyz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-base md:text-lg font-medium text-gray-700 transition-all duration-200 hover:text-primary hover:scale-105 hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
-                  >
-                    Twitter
-                  </Link>
-                </li>
-                <li>
-                  {/* Farcaster link removed due to 404. Add valid link if available. */}
-                </li>
-                <li>
-                  {/* GitHub link */}
-                  <Link
-                    href="https://github.com/devoter-xyz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-base md:text-lg font-medium text-gray-700 transition-all duration-200 hover:text-primary hover:scale-105 hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
-                  >
-                    GitHub
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            {footerLinks.map((group) => (
+              <div key={group.title}>
+                <h3 className="font-bold mb-6 text-lg md:text-xl tracking-wide text-gray-800">{group.title}</h3>
+                <ul className="space-y-3">
+                  {group.links.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        href={link.href}
+                        className="text-base md:text-lg font-medium text-gray-700 transition-all duration-200 hover:text-primary hover:scale-105 hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </nav>
         </div>
 
