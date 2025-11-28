@@ -80,7 +80,6 @@ export default function PrivacyPolicyContent() {
                   illo inventore veritatis et quasi architecto beatae vitae
                   dicta sunt explicabo.
                 </p>
-                <p className="text-muted-foreground mb-6">
               </section>
 
               <section className="mb-8">
@@ -129,9 +128,6 @@ export default function PrivacyPolicyContent() {
                 </ul>
               </section>
 
-              <section className="mb-8">
-                <h2 className="text-2xl font-bold mb-4">Security Measures</h2>
-                <p className="text-muted-foreground mb-6">
               </section>
 
               <section className="mb-8">
@@ -152,11 +148,6 @@ export default function PrivacyPolicyContent() {
                 </div>
               </section>
 
-              <section>
-                <h2 className="text-2xl font-bold mb-4">
-                  Changes to This Policy
-                </h2>
-                <p className="text-muted-foreground mb-6">
               </section>
             </div>
           </Card>
