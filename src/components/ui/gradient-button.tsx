@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const gradientButtonVariants = cva(
-  'inline-flex items-center justify-center rounded-lg px-8 py-3 font-bold text-white shadow-lg transition-transform duration-300 hover:scale-105',
+  'inline-flex items-center justify-center rounded-lg px-8 py-3 font-bold text-white shadow-lg transition-transform duration-300 hover:scale-105 outline-none focus-visible:ring-ring/50 focus-visible:ring-[3px] focus-visible:outline-none',
   {
     variants: {
       variant: {
