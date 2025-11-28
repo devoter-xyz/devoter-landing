@@ -28,7 +28,7 @@ export default function Navbar() {
             alt="Devoter logo"
             width={50}
             height={30}
-            className="object-contain w-32"
+            className="object-contain w-24 md:w-32"
           />
         </Link>
 
