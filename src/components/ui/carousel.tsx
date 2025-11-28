@@ -76,17 +76,17 @@ export default function Carousel({
     };
   }, [goToPrevious, goToNext, items.length]); // Dependencies for keyboard nav
 
-  if (items.length === 0) return null;
-
   const [currentSlideDescription, setCurrentSlideDescription] = useState("");
 
   useEffect(() => {
-    if (items.length > 0) {
+    if (items.length > 0 && currentIndex >= 0 && currentIndex < items.length) {
       setCurrentSlideDescription(
         `Item ${currentIndex + 1} of ${items.length}, ${
           items[currentIndex].alt
         }`
       );
+    } else {
+      setCurrentSlideDescription("");
     }
   }, [currentIndex, items]);
 
