@@ -78,6 +78,20 @@ export default function Carousel({
 
   if (items.length === 0) return null;
 
+  const [currentSlideDescription, setCurrentSlideDescription] = useState("");
+
+  useEffect(() => {
+    if (items.length > 0) {
+      setCurrentSlideDescription(
+        `Item ${currentIndex + 1} of ${items.length}, ${
+          items[currentIndex].alt
+        }`
+      );
+    }
+  }, [currentIndex, items]);
+
+  if (items.length === 0) return null;
+
   return (
     <div
       ref={carouselRef}
@@ -86,6 +100,9 @@ export default function Carousel({
       aria-label="Image carousel"
       tabIndex={0} // Make the carousel container focusable
     >
+      <span className="sr-only" aria-live="polite">
+        {currentSlideDescription}
+      </span>
       {/* Main carousel container */}
       <div className="relative aspect-[4/2.8]" role="region" aria-live="polite" aria-atomic="true">
         <AnimatePresence mode="wait">
