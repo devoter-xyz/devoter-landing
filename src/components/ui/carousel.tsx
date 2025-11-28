@@ -104,7 +104,7 @@ export default function Carousel({
         {currentSlideDescription}
       </span>
       {/* Main carousel container */}
-      <div className="relative aspect-[4/2.8]" role="region" aria-live="polite" aria-atomic="true">
+      <div className="relative aspect-[4/2.8]" role="region" aria-atomic="true">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -134,7 +134,7 @@ export default function Carousel({
             onClick={goToPrevious}
             className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm border rounded-full p-2 hover:bg-background/90 transition-colors"
             aria-label="Previous image"
-            tabIndex={0} // Ensure buttons are focusable
+            
           >
             <ChevronLeft size={20} />
           </button>
@@ -142,7 +142,7 @@ export default function Carousel({
             onClick={goToNext}
             className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm border rounded-full p-2 hover:bg-background/90 transition-colors"
             aria-label="Next image"
-            tabIndex={0} // Ensure buttons are focusable
+            
           >
             <ChevronRight size={20} />
           </button>
