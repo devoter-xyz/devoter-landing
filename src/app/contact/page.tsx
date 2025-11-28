@@ -4,13 +4,13 @@ import ContactContent from "@/components/contact/ContactContent";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Devoter",
+  title: "Contact Devoter - Reach Out for Support & Inquiries",
   description:
-    "Get in touch with the Devoter team. We're here to help with any questions or feedback.",
+    "Connect with the Devoter team for prompt support, partnership opportunities, or general inquiries. We're here to assist you.",
   openGraph: {
-    title: "Contact Us | Devoter",
+    title: "Contact Devoter - Reach Out for Support & Inquiries",
     description:
-      "Get in touch with the Devoter team. We're here to help with any questions or feedback.",
+      "Connect with the Devoter team for prompt support, partnership opportunities, or general inquiries. We're here to assist you.",
   },
 };
 
