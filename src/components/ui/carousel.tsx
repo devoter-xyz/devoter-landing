@@ -108,14 +108,14 @@ export default function Carousel({
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            id={`carousel-item-${currentIndex}`} // Add ID for aria-controls
+            id="carousel-current-item" // Add ID for aria-controls
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
             className="absolute inset-0"
             role="tabpanel" // Each image is a tab panel
-            aria-labelledby={`carousel-tab-${currentIndex}`} // Link to the dot indicator (tab)
+            aria-labelledby="carousel-current-tab" // Link to the dot indicator (tab)
           >
             <Image
               src={items[currentIndex].src}
@@ -155,7 +155,7 @@ export default function Carousel({
           {items.map((_, index) => (
             <button
               key={index}
-              id={`carousel-tab-${index}`} // Add ID to link with tabpanel
+              id={index === currentIndex ? "carousel-current-tab" : undefined} // Add ID to link with tabpanel
               onClick={() => goToSlide(index)}
               className={`w-2 h-2 rounded-full transition-colors ${
                 index === currentIndex
@@ -165,7 +165,7 @@ export default function Carousel({
               aria-label={`Go to slide ${index + 1}`}
               role="tab"
               aria-selected={index === currentIndex}
-              aria-controls={`carousel-item-${index}`}
+              aria-controls="carousel-current-item"
               tabIndex={index === currentIndex ? 0 : -1} // Only active tab is focusable via Tab key
             />
           ))}
