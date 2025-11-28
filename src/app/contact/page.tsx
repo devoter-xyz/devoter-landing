@@ -4,13 +4,25 @@ import ContactContent from "@/components/contact/ContactContent";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Devoter",
+  title: "Contact Devoter - Reach Out for Support & Inquiries",
   description:
-    "Get in touch with the Devoter team. We're here to help with any questions or feedback.",
+    "Connect with the Devoter team for prompt support, partnership opportunities, or general inquiries. We're here to assist you.",
   openGraph: {
-    title: "Contact Us | Devoter",
+    title: "Contact Devoter - Reach Out for Support & Inquiries",
     description:
-      "Get in touch with the Devoter team. We're here to help with any questions or feedback.",
+      "Connect with the Devoter team for prompt support, partnership opportunities, or general inquiries. We're here to assist you.",
+    url: "https://www.devoter.xyz/contact",
+    siteName: "Devoter",
+    images: [
+      {
+        url: "https://www.devoter.xyz/interface/devoter-1.png",
+        width: 1200,
+        height: 630,
+        alt: "Devoter Social Image",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
   },
 };
 
