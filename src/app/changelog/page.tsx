@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/landing/Footer";
-import ChangelogContent from "@/components/changelog/ChangelogContent";
+import dynamic from "next/dynamic";
+
+const ChangelogContent = dynamic(() => import("@/components/changelog/ChangelogContent"), { ssr: true });
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
