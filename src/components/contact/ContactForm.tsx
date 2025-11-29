@@ -35,11 +35,13 @@ export const ContactForm: React.FC = () => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false);
 
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const successTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    validate(formData); // Initial validation to set button state
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
@@ -54,27 +56,36 @@ export const ContactForm: React.FC = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    const newFormData = { ...formData, [name]: value };
+    setFormData(newFormData);
     setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+    validate(newFormData); // Validate after each change
   };
 
-  const validate = () => {
+  const validate = (data: FormData) => {
     const newErrors: FormErrors = {};
-    if (!formData.firstName) newErrors.firstName = "First Name is required";
-    if (!formData.lastName) newErrors.lastName = "Last Name is required";
-    if (!formData.email) {
+    if (!data.firstName) newErrors.firstName = "First Name is required";
+    if (!data.lastName) newErrors.lastName = "Last Name is required";
+    if (!data.email) {
       newErrors.email = "Email Address is required";
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(data.email)) {
       newErrors.email = "Invalid email address";
     }
-    if (!formData.subject) newErrors.subject = "Subject is required";
-    if (!formData.message) newErrors.message = "Message is required";
+    if (!data.subject) newErrors.subject = "Subject is required";
+    if (!data.message) newErrors.message = "Message is required";
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    const isValid = Object.keys(newErrors).length === 0;
+    setIsFormValid(isValid);
+    return isValid;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validate(formData)) {
+      return; // Stop submission if validation fails
+    }
+
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
@@ -221,8 +232,8 @@ export const ContactForm: React.FC = () => {
 
           <button
             type="submit"
-            disabled={loading}
-            className={`w-full px-6 py-3 rounded-lg bg-gradient-to-r from-secondary to-accent text-primary-foreground font-semibold shadow-lg duration-300 transition-transform ${loading ? "opacity-50 cursor-not-allowed" : "hover:scale-105"}`}
+            disabled={loading || !isFormValid}
+            className={`w-full px-6 py-3 rounded-lg bg-gradient-to-r from-secondary to-accent text-primary-foreground font-semibold shadow-lg duration-300 transition-transform ${loading || !isFormValid ? "opacity-50 cursor-not-allowed" : "hover:scale-105"}`}
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
