@@ -56,6 +56,7 @@ const Footer = () => {
                     <li key={link.name}>
                       <Link
                         href={link.href}
+                        {...(link.isExternal && { target: "_blank", rel: "noopener noreferrer" })}
                         className="text-base md:text-lg font-medium text-gray-700 transition-all duration-200 hover:text-primary hover:scale-105 hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
                       >
                         {link.name}
