@@ -8,14 +8,8 @@ import {
   CardTitle
 } from "@/components/ui/card";
 
-interface CustomCardProps {
-  children: React.ReactNode;
+interface CustomCardProps extends React.HTMLAttributes<HTMLDivElement> {
   type?: "default" | "transparent";
-  className?: string;
-  header?: React.ReactNode;
-  title?: React.ReactNode;
-  footer?: React.ReactNode;
-  as?: "article" | "section";
 }
 
 /**
@@ -30,34 +24,21 @@ interface CustomCardProps {
  * @param {"article" | "section"} [as] - Semantic element to render
  * @param {any} [props] - Other props
  */
-export function CustomCard({
-  children,
-  type = "default",
-  className,
-  header,
-  title,
-  footer,
-  as: Component = "article",
-  ...props
-}: CustomCardProps) {
-  return (
-    <Component>
-    <Card
-      className={cn(
-        type === "transparent" && "backdrop-blur-sm bg-white/10 border border-white/20 bg-transparent",
-        className
-      )}
-      {...props}
-    >
-      {(header || title) && (
-        <CardHeader>
-          {title && <CardTitle>{title}</CardTitle>}
-          {header}
-        </CardHeader>
-      )}
-      <CardContent>{children}</CardContent>
-      {footer && <CardFooter>{footer}</CardFooter>}
-    </Card>
-    </Component>
-  );
-}
+export const CustomCard = React.forwardRef<HTMLDivElement, CustomCardProps>(
+  ({ className, type = "default", children, ...props }, ref) => {
+    return (
+      <Card
+        ref={ref}
+        className={cn(
+          type === "transparent" &&
+            "backdrop-blur-sm bg-white/10 border border-white/20 bg-transparent",
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </Card>
+    );
+  }
+);
+CustomCard.displayName = "CustomCard";
