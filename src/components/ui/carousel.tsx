@@ -16,6 +16,8 @@ interface CarouselProps {
   autoPlay?: boolean;
   autoPlayInterval?: number;
   className?: string;
+  initialPriority?: boolean;
+  imageSizes?: string;
 }
 
 export default function Carousel({
@@ -23,6 +25,8 @@ export default function Carousel({
   autoPlay = true,
   autoPlayInterval = 4000,
   className = "",
+  initialPriority = false,
+  imageSizes,
 }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null); // Ref for the main carousel div
@@ -122,6 +126,8 @@ export default function Carousel({
               alt={items[currentIndex].alt}
               fill
               className="object-contain border rounded-xl"
+              priority={initialPriority || currentIndex === 0}
+              sizes={imageSizes || "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"}
             />
           </motion.div>
         </AnimatePresence>
