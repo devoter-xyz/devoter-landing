@@ -3,7 +3,7 @@
 import { Github, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { footerLinks, FooterLink } from "../../lib/footerLinks";
+import { footerLinks } from "../../lib/footerLinks";
 
 /**
  * Footer component for the Devoter landing page.
