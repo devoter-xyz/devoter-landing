@@ -1,4 +1,15 @@
-export const footerLinks = [
+interface FooterLink {
+  name: string;
+  href: string;
+  isExternal?: boolean;
+}
+
+interface FooterCategory {
+  title: string;
+  links: FooterLink[];
+}
+
+export const footerLinks: FooterCategory[] = [
   {
     title: "Product",
     links: [
@@ -25,3 +36,4 @@ export const footerLinks = [
     ],
   },
 ];
+
