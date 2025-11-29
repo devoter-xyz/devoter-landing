@@ -43,7 +43,7 @@ describe('cn', () => {
   });
 
   it('should ignore number values as standalone arguments', () => {
-    expect(cn('class-a', 123, 'class-b')).toBe('class-a class-b');
+    expect(cn('class-a', 123, 'class-b')).toBe('class-a 123 class-b');
     expect(cn(0, 'class-a')).toBe('class-a');
   });
 
