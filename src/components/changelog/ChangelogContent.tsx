@@ -91,9 +91,9 @@ export default function ChangelogContent({ changelogEntries }: ChangelogContentP
                     <div>
                       <h1 className="text-xl font-semibold flex items-center gap-2">
                         {entry.version}
-                        <h2 className="text-sm font-normal text-muted-foreground">
+                        <span className="text-sm font-normal text-muted-foreground">
                           - {entry.title}
-                        </h2>
+                        </span>
                       </h1>
                     </div>
                   </div>

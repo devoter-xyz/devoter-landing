@@ -7,7 +7,7 @@ const ChangelogContent = dynamic(() => import("@/components/changelog/ChangelogC
 import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const latestEntry = changelogData[0]; // Assuming changelogData is sorted by date, newest first.
+  const latestEntry = changelogData[0] ?? { title: 'Changelog', description: 'No entries yet' };
 
   return {
     title: "Changelog | Devoter",
