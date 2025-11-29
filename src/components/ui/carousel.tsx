@@ -43,10 +43,12 @@ export default function Carousel({
 
   const goToPrevious = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
+    carouselRef.current?.focus();
   }, [items.length]);
 
   const goToNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % items.length);
+    carouselRef.current?.focus();
   }, [items.length]);
 
   const goToSlide = useCallback((index: number) => {
