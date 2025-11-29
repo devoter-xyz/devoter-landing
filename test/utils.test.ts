@@ -32,4 +32,35 @@ describe('cn', () => {
     expect(cn('text-red-500', 'text-blue-500')).toBe('text-blue-500');
     expect(cn('font-bold', 'font-normal')).toBe('font-normal');
   });
+
+  // Additional edge cases
+  it('should handle objects with mixed boolean and non-boolean values', () => {
+    expect(cn('base', { 'active': true, 'disabled': false, 'priority': 'high' })).toBe('base active priority');
+  });
+
+  it('should handle deeply nested arrays', () => {
+    expect(cn(['one', ['two', ['three', 'four']]])).toBe('one two three four');
+  });
+
+  it('should ignore number values as standalone arguments', () => {
+    expect(cn('class-a', 123, 'class-b')).toBe('class-a class-b');
+    expect(cn(0, 'class-a')).toBe('class-a');
+  });
+
+  it('should handle falsey values within arrays and objects', () => {
+    expect(cn(['a', 0, false, null, undefined, 'b'])).toBe('a b');
+    expect(cn({ 'c': 0, 'd': false, 'e': null, 'f': undefined, 'g': 'valid' })).toBe('g');
+  });
+
+  it('should correctly process a combination of various input types', () => {
+    expect(cn(
+      'initial',
+      true && 'conditional-true',
+      false && 'conditional-false',
+      ['array-item-1', null, { 'obj-item': true, 'obj-false': false }],
+      { 'final-obj': 1 },
+      0,
+      undefined
+    )).toBe('initial conditional-true array-item-1 obj-item final-obj');
+  });
 });
