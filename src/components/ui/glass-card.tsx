@@ -8,7 +8,7 @@ const GlassCard = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "w-full max-w-sm rounded-xl border border-white/10 bg-white/5 p-4 shadow-md backdrop-blur-lg [ @supports(not_(backdrop-filter:blur(0)))]:bg-white/20 sm:p-6",
+      "w-full max-w-sm rounded-xl border-[var(--glass-card-border)] bg-[var(--glass-card-background)] p-4 shadow-[var(--glass-card-shadow)] backdrop-blur-lg [@supports(not (backdrop-filter:blur(0)))]:bg-[var(--glass-card-background-fallback)] sm:p-6",
       className
     )}
     {...props}
