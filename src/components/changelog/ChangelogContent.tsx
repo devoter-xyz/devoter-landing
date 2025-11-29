@@ -10,7 +10,7 @@ import {
   Zap,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { changelogData, ChangelogEntry } from "@/lib/changelogData";
+import { ChangelogEntry } from "@/lib/changelogData";
 
 const getTypeIcon = (type: ChangelogEntry["type"]) => {
   switch (type) {
@@ -42,7 +42,11 @@ const getChangeTypeColor = (type: string) => {
 };
 
 
-export default function ChangelogContent() {
+interface ChangelogContentProps {
+  changelogEntries: ChangelogEntry[];
+}
+
+export default function ChangelogContent({ changelogEntries }: ChangelogContentProps) {
   return (
     <section className="relative w-full min-h-screen bg-gradient-to-b from-primary/5 to-background pt-24 sm:pt-28 md:pt-32 pb-16">
       <div className="container mx-auto px-4 max-w-4xl">
@@ -85,12 +89,12 @@ export default function ChangelogContent() {
                   <div className="flex items-center gap-3 mb-2 sm:mb-0">
                     {getTypeIcon(entry.type)}
                     <div>
-                      <h2 className="text-xl font-semibold flex items-center gap-2">
+                      <h1 className="text-xl font-semibold flex items-center gap-2">
                         {entry.version}
-                        <span className="text-sm font-normal text-muted-foreground">
+                        <h2 className="text-sm font-normal text-muted-foreground">
                           - {entry.title}
-                        </span>
-                      </h2>
+                        </h2>
+                      </h1>
                     </div>
                   </div>
 
