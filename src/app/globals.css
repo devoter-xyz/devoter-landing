@@ -95,6 +95,60 @@ Removed unused CSS custom properties from @theme inline block:
   --sidebar-accent-foreground: oklch(0.145 0 0);
   --sidebar-border: oklch(0.9 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Glass Card */
+  --glass-card-background: oklch(1 0 0 / 0.05); /* White with 5% opacity */
+  --glass-card-background-fallback: oklch(1 0 0 / 0.2); /* White with 20% opacity for fallback */
+  --glass-card-border: oklch(1 0 0 / 0.1); /* White with 10% opacity */
+  --glass-card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+
+  --primary: oklch(0.85 0.18 95);  /* E5C501 */
+  --primary-foreground: oklch(0.145 0 0);
+
+  --secondary: oklch(0.45 0.22 295.9); /* 5637D1 */
+  --secondary-foreground: oklch(0.985 0 0);
+
+  --accent: oklch(0.65 0.21 295);   /* 985ED9 */
+  --accent-foreground: oklch(0.985 0 0);
+
+  --muted: oklch(0.3 0.05 295);
+  --muted-foreground: oklch(0.708 0 0);
+
+  --destructive: oklch(0.75 0.24 56); /* FF7300 */
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+
+  --chart-1: oklch(0.715 0.235 64.18); /* F78101 */
+  --chart-2: oklch(0.65 0.21 295);     /* 985ED9 */
+  --chart-3: oklch(0.45 0.22 295.9);   /* 5637D1 */
+  --chart-4: oklch(0.85 0.18 95);      /* E5C501 */
+  --chart-5: oklch(0.75 0.24 56);      /* FF7300 */
+
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.45 0.22 295.9); /* 5637D1 */
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.65 0.21 295);    /* 985ED9 */
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+
+  /* Glass Card */
+  --glass-card-background: oklch(0 0 0 / 0.2); /* Black with 20% opacity */
+  --glass-card-background-fallback: oklch(0 0 0 / 0.4); /* Black with 40% opacity for fallback */
+  --glass-card-border: oklch(1 0 0 / 0.1); /* White with 10% opacity */
+  --glass-card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.2), 0 2px 4px -2px rgb(0 0 0 / 0.2);
 }
 
 .dark {
