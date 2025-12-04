@@ -1,8 +1,19 @@
 import { Zap } from "lucide-react";
 import Link from "next/link";
 import Carousel from "@/components/ui/carousel";
+import CarouselSkeleton from "@/components/ui/carousel-skeleton";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Simulate 3 seconds of loading
+
+    return () => clearTimeout(timer);
+  }, []);
   const carouselItems = [
     {
       id: 1,
@@ -80,12 +91,16 @@ export default function Hero() {
 
         {/* Right: Dashboard Carousel */}
         <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
-          <Carousel
-            items={carouselItems}
-            autoPlay={true}
-            autoPlayInterval={5000}
-            className="max-w-2xl w-full"
-          />
+          {isLoading ? (
+            <CarouselSkeleton className="max-w-2xl w-full" />
+          ) : (
+            <Carousel
+              items={carouselItems}
+              autoPlay={true}
+              autoPlayInterval={5000}
+              className="max-w-2xl w-full"
+            />
+          )}
         </div>
       </div>
     </section>
