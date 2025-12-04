@@ -79,7 +79,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${kumbhSans.variable} antialiased`}>{children}</body>
+      <body className={`${kumbhSans.variable} antialiased`}>
+        <main id="main-content">{children}</main>
+      </body>
     </html>
   );
 }

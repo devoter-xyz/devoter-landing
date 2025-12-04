@@ -20,6 +20,9 @@ export default function Navbar() {
 
   return (
     <header className={clsx("fixed top-0 w-full z-50 backdrop-blur-sm h-16")}>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:block focus:absolute focus:top-0 focus:left-0 focus:z-[999] focus:bg-primary focus:text-primary-foreground focus:p-4 focus:underline">
+        Skip to main content
+      </a>
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2" aria-label="Go to homepage">
