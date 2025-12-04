@@ -80,7 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${kumbhSans.variable} antialiased`}>
-        <main id="main-content">{children}</main>
+        <main id="main-content" tabIndex={-1}>{children}</main>
       </body>
     </html>
   );
