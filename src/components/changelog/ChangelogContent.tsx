@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { ChangelogEntry } from "@/lib/changelogData";
+import SectionHeader from "../common/SectionHeader";
 
 const getTypeIcon = (type: ChangelogEntry["type"]) => {
   switch (type) {
@@ -55,23 +56,17 @@ export default function ChangelogContent({ changelogEntries }: ChangelogContentP
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
         >
-          <div className="inline-block bg-primary/20 border border-primary/30 rounded-full px-4 py-1.5 mb-6">
-            <p className="flex items-center text-sm font-semibold justify-center">
-              <GitCommit size={16} className="mr-2" />
-              Product Updates
-            </p>
-          </div>
-
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4">
-            Changelog
-          </h1>
-
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Stay updated with the latest features, improvements, and bug fixes
-            in Devoter.
-          </p>
+          <SectionHeader
+            badgeText="Product Updates"
+            badgeIcon={GitCommit}
+            headingId="changelog-heading"
+            heading="Changelog"
+            description="Stay updated with the latest features, improvements, and bug fixes in Devoter."
+            className="mb-12"
+            headingClassName="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4"
+            descriptionClassName="text-lg md:text-xl"
+          />
         </motion.div>
 
         {/* Changelog Entries */}
