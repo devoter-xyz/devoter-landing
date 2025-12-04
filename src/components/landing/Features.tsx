@@ -2,6 +2,7 @@ import { GlassCard } from "../ui/glass-card";
 import { features } from "../../lib/featuresData";
 import type { Feature } from "../../lib/featuresData";
 import { Icon } from "../ui/Icon";
+import SectionHeader from "../common/SectionHeader";
 
 const Features = () => {
   return (
@@ -12,17 +13,14 @@ const Features = () => {
     >
       <div className="container mx-auto max-w-6xl">
         {/* Section Heading */}
-        <header className="text-center mb-20">
-          <h2
-            id="features-heading"
-            className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-b from-primary to-accent drop-shadow-lg mb-6"
-          >
-            Why Choose Devoter?
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover a new era of open-source governance. Our platform empowers communities with secure, transparent, and developer-centric voting.
-          </p>
-        </header>
+        <SectionHeader
+          headingId="features-heading"
+          heading="Why Choose Devoter?"
+          description="Discover a new era of open-source governance. Our platform empowers communities with secure, transparent, and developer-centric voting."
+          className="mb-20"
+          headingClassName="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-b from-primary to-accent drop-shadow-lg mb-6"
+          descriptionClassName="text-xl"
+        />
 
         {/* Feature Cards Grid - Redesigned */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">

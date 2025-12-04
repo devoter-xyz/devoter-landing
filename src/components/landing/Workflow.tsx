@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { workflowSteps } from "@/lib/workflowData";
 import Link from "next/link";
 import { useId, useState, type KeyboardEvent } from 'react';
+import SectionHeader from "../common/SectionHeader";
 
 
 
@@ -76,15 +77,14 @@ const Workflow = () => {
   return (
     <section id="workflow" className="py-20 sm:py-32 text-foreground" aria-labelledby="workflow-heading">
       <div className="container mx-auto px-4">
-        <header className="text-center mb-12">
-          <h2 id="workflow-heading" className="text-3xl md:text-5xl font-bold tracking-tighter">
-            How It Works
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            A simple, four-step process to make your voice heard in open-source
-            development.
-          </p>
-        </header>
+        <SectionHeader
+          headingId="workflow-heading"
+          heading="How It Works"
+          description="A simple, four-step process to make your voice heard in open-source development."
+          className="mb-12"
+          headingClassName="text-3xl md:text-5xl font-bold tracking-tighter"
+          descriptionClassName="mt-4 text-lg"
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Step List */}
