@@ -7,6 +7,9 @@ import { useState, useRef, useEffect } from "react";
 import { CustomButton } from "../common/CustomButton";
 import { Icon } from "../ui/Icon";
 
+const MAX_SUBJECT_LENGTH = 100;
+const MAX_MESSAGE_LENGTH = 500;
+
 interface FormData {
   firstName: string;
   lastName: string;
@@ -71,8 +74,16 @@ export const ContactForm: React.FC = () => {
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(data.email)) {
       newErrors.email = "Invalid email address";
     }
-    if (!data.subject) newErrors.subject = "Subject is required";
-    if (!data.message) newErrors.message = "Message is required";
+    if (!data.subject) {
+      newErrors.subject = "Subject is required";
+    } else if (data.subject.length > MAX_SUBJECT_LENGTH) {
+      newErrors.subject = `Subject cannot exceed ${MAX_SUBJECT_LENGTH} characters`;
+    }
+    if (!data.message) {
+      newErrors.message = "Message is required";
+    } else if (data.message.length > MAX_MESSAGE_LENGTH) {
+      newErrors.message = `Message cannot exceed ${MAX_MESSAGE_LENGTH} characters`;
+    }
     setErrors(newErrors);
     const isValid = Object.keys(newErrors).length === 0;
     setIsFormValid(isValid);
@@ -201,9 +212,13 @@ export const ContactForm: React.FC = () => {
               name="subject"
               value={formData.subject}
               onChange={handleChange}
+              maxLength={MAX_SUBJECT_LENGTH}
               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors bg-background ${errors.subject ? "border-red-500" : "border-border"}`}
               placeholder="How can we help you?"
             />
+            <div className={`text-right text-sm mt-1 ${formData.subject.length >= MAX_SUBJECT_LENGTH * 0.9 ? "text-red-500" : "text-muted-foreground"}`}>
+              {formData.subject.length}/{MAX_SUBJECT_LENGTH}
+            </div>
             {errors.subject && (
               <p className="text-red-500 text-sm mt-1">{errors.subject}</p>
             )}
@@ -222,9 +237,13 @@ export const ContactForm: React.FC = () => {
               rows={6}
               value={formData.message}
               onChange={handleChange}
+              maxLength={MAX_MESSAGE_LENGTH}
               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors bg-background resize-none ${errors.message ? "border-red-500" : "border-border"}`}
               placeholder="Tell us more about your inquiry..."
             />
+            <div className={`text-right text-sm mt-1 ${formData.message.length >= MAX_MESSAGE_LENGTH * 0.9 ? "text-red-500" : "text-muted-foreground"}`}>
+              {formData.message.length}/{MAX_MESSAGE_LENGTH}
+            </div>
             {errors.message && (
               <p className="text-red-500 text-sm mt-1">{errors.message}</p>
             )}
