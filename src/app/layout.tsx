@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Kumbh_Sans } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "../context/ThemeContext";
 
 const kumbhSans = Kumbh_Sans({
   subsets: ["latin"],
@@ -78,9 +79,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${kumbhSans.variable} antialiased`}>
-        <main id="main-content" tabIndex={-1}>{children}</main>
+    <html lang="en" className={`${kumbhSans.variable} antialiased`}>
+      <body className="transition-colors duration-500 ease-in-out bg-background text-foreground">
+        <ThemeProvider>
+          <main id="main-content" tabIndex={-1}>{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
