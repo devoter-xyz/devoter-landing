@@ -1,10 +1,11 @@
 "use client";
 
 import clsx from "clsx";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 const navItems = [
   { label: "Features", href: "#features" },
@@ -14,6 +15,7 @@ const navItems = [
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
@@ -50,32 +52,50 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
+            <li>
+              <button
+                onClick={toggleTheme}
+                className="text-foreground hover:text-primary transition-colors duration-300"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+              </button>
+            </li>
           </ul>
         </nav>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={toggleMobileMenu}
-          className="md:hidden text-foreground relative h-6 w-6"
-          aria-label="Toggle mobile menu"
-          aria-expanded={isMobileMenuOpen}
-          aria-controls="mobile-menu"
-        >
-          <Menu
-            size={24}
-            className={clsx(
-              "transition-all duration-300 ease-in-out",
-              isMobileMenuOpen ? "rotate-90 scale-0" : "rotate-0 scale-100"
-            )}
-          />
-          <X
-            size={24}
-            className={clsx(
-              "absolute top-0 left-0 transition-all duration-300 ease-in-out",
-              isMobileMenuOpen ? "rotate-0 scale-100" : "-rotate-90 scale-0"
-            )}
-          />
-        </button>
+        {/* Mobile Menu Button and Theme Toggle */}
+        <div className="flex items-center gap-4 md:hidden">
+          <button
+            onClick={toggleTheme}
+            className="text-foreground relative h-6 w-6"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={24} /> : <Moon size={24} />}
+          </button>
+          <button
+            onClick={toggleMobileMenu}
+            className="md:hidden text-foreground relative h-6 w-6"
+            aria-label="Toggle mobile menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+          >
+            <Menu
+              size={24}
+              className={clsx(
+                "transition-all duration-300 ease-in-out",
+                isMobileMenuOpen ? "rotate-90 scale-0" : "rotate-0 scale-100"
+              )}
+            />
+            <X
+              size={24}
+              className={clsx(
+                "absolute top-0 left-0 transition-all duration-300 ease-in-out",
+                isMobileMenuOpen ? "rotate-0 scale-100" : "-rotate-90 scale-0"
+              )}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Dropdown */}
@@ -99,6 +119,18 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
+            <li>
+              <button
+                onClick={() => {
+                  toggleTheme();
+                  closeMobileMenu();
+                }}
+                className="block text-white font-medium w-full text-left"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              </button>
+            </li>
           </ul>
         </nav>
       </div>
