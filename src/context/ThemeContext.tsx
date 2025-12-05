@@ -15,10 +15,19 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem("theme") as Theme;
+    const storedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-    const initialTheme = storedTheme || (prefersDark.matches ? "dark" : "light");
+    const validateTheme = (theme: string | null): Theme | null => {
+      if (theme === "light" || theme === "dark") {
+        return theme;
+      }
+      return null;
+    };
+
+    const validatedTheme = validateTheme(storedTheme);
+
+    const initialTheme = validatedTheme || (prefersDark.matches ? "dark" : "light");
     setTheme(initialTheme);
     document.documentElement.classList.add(initialTheme);
 
@@ -27,12 +36,17 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
       setTheme(newTheme);
       document.documentElement.classList.remove(e.matches ? "light" : "dark");
       document.documentElement.classList.add(newTheme);
-      localStorage.setItem("theme", newTheme);
     };
 
-    prefersDark.addEventListener("change", handleChange);
+    if (!validatedTheme) {
+      prefersDark.addEventListener("change", handleChange);
+    }
 
-    return () => prefersDark.removeEventListener("change", handleChange);
+    return () => {
+      if (!validatedTheme) {
+        prefersDark.removeEventListener("change", handleChange);
+      }
+    };
   }, []);
 
   useEffect(() => {
