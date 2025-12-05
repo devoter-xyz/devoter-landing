@@ -210,13 +210,14 @@ export const ContactForm: React.FC = () => {
               type="text"
               id="subject"
               name="subject"
+              aria-describedby="subject-count"
               value={formData.subject}
               onChange={handleChange}
               maxLength={MAX_SUBJECT_LENGTH}
               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors bg-background ${errors.subject ? "border-red-500" : "border-border"}`}
               placeholder="How can we help you?"
             />
-            <div className={`text-right text-sm mt-1 ${formData.subject.length >= MAX_SUBJECT_LENGTH * 0.9 ? "text-red-500" : "text-muted-foreground"}`}>
+            <div id="subject-count" aria-live="polite" className={`text-right text-sm mt-1 ${formData.subject.length >= MAX_SUBJECT_LENGTH * 0.9 ? "text-red-500" : "text-muted-foreground"}`}>
               {formData.subject.length}/{MAX_SUBJECT_LENGTH}
             </div>
             {errors.subject && (
@@ -235,13 +236,14 @@ export const ContactForm: React.FC = () => {
               id="message"
               name="message"
               rows={6}
+              aria-describedby="message-count"
               value={formData.message}
               onChange={handleChange}
               maxLength={MAX_MESSAGE_LENGTH}
               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors bg-background resize-none ${errors.message ? "border-red-500" : "border-border"}`}
               placeholder="Tell us more about your inquiry..."
             />
-            <div className={`text-right text-sm mt-1 ${formData.message.length >= MAX_MESSAGE_LENGTH * 0.9 ? "text-red-500" : "text-muted-foreground"}`}>
+            <div id="message-count" aria-live="polite" role="status" className={`text-right text-sm mt-1 ${formData.message.length >= MAX_MESSAGE_LENGTH * 0.9 ? "text-red-500" : "text-muted-foreground"}`}>
               {formData.message.length}/{MAX_MESSAGE_LENGTH}
             </div>
             {errors.message && (
