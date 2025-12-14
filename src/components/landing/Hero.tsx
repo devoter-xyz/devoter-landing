@@ -44,6 +44,7 @@ export default function Hero() {
 
   return (
     <section className="relative w-full min-h-screen flex items-center bg-gradient-to-b from-primary/10 to-background text-foreground pt-24 sm:pt-28 md:pt-2">
+      <div className="absolute inset-0 z-0 overflow-hidden animated-gradient-background"></div>
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
         {/* Left: Text & CTAs */}
         <div className="w-full md:w-1/2 text-center md:text-left">
