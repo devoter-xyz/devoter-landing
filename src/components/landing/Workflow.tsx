@@ -2,7 +2,7 @@
 
 import { GlassCard, GlassCardContent } from "@/components/ui/glass-card";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { workflowSteps } from "@/lib/workflowData";
 import Link from "next/link";
 import { useId, useState, type KeyboardEvent } from 'react';
